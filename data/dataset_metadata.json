@@ -1,0 +1,24 @@
+{
+  "dataset_name": "Urban Cadastral Sector 01 - Drone Survey Dataset",
+  "acquisition_type": "High-Precision Drone Orthomosaic & LiDAR/Photogrammetric DSM",
+  "gsd_meters": 0.1,
+  "image_dimensions": [
+    1024,
+    1024
+  ],
+  "bounds_geo": {
+    "min_lon": 78.486218,
+    "min_lat": 17.3845401,
+    "max_lon": 78.487182,
+    "max_lat": 17.3854599,
+    "center": [
+      78.4867,
+      17.385
+    ]
+  },
+  "crs": "WGS84 / EPSG:4326 (Geographic) with UTM Zone 44N projection basis",
+  "num_parcels": 80,
+  "num_buildings": 70,
+  "num_roads": 6,
+  "num_gt_benchmarks": 7
+}

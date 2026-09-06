@@ -1,0 +1,221 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "RD-SEC01-001",
+        "name": "Municipal Central Avenue",
+        "type": "primary",
+        "width_m": 8.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.487182,
+              17.3850359
+            ],
+            [
+              78.487182,
+              17.3849641
+            ],
+            [
+              78.486218,
+              17.3849641
+            ],
+            [
+              78.486218,
+              17.3850359
+            ],
+            [
+              78.487182,
+              17.3850359
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "RD-SEC01-002",
+        "name": "1st Cross Road",
+        "type": "secondary",
+        "width_m": 7.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867329,
+              17.3854599
+            ],
+            [
+              78.4867329,
+              17.3845401
+            ],
+            [
+              78.4866671,
+              17.3845401
+            ],
+            [
+              78.4866671,
+              17.3854599
+            ],
+            [
+              78.4867329,
+              17.3854599
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "RD-SEC01-003",
+        "name": "North Sector Access Lane",
+        "type": "lane",
+        "width_m": 4.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.487182,
+              17.3852731
+            ],
+            [
+              78.487182,
+              17.3852336
+            ],
+            [
+              78.486218,
+              17.3852336
+            ],
+            [
+              78.486218,
+              17.3852731
+            ],
+            [
+              78.487182,
+              17.3852731
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "RD-SEC01-004",
+        "name": "South Sector Access Lane",
+        "type": "lane",
+        "width_m": 4.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.487182,
+              17.384779
+            ],
+            [
+              78.487182,
+              17.3847395
+            ],
+            [
+              78.486218,
+              17.3847395
+            ],
+            [
+              78.486218,
+              17.384779
+            ],
+            [
+              78.487182,
+              17.384779
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "RD-SEC01-005",
+        "name": "East Sector Access Lane",
+        "type": "lane",
+        "width_m": 4.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870088,
+              17.3854599
+            ],
+            [
+              78.4870088,
+              17.3845401
+            ],
+            [
+              78.4869711,
+              17.3845401
+            ],
+            [
+              78.4869711,
+              17.3854599
+            ],
+            [
+              78.4870088,
+              17.3854599
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "road_id": "RD-SEC01-006",
+        "name": "West Sector Access Lane",
+        "type": "lane",
+        "width_m": 4.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4864251,
+              17.3854599
+            ],
+            [
+              78.4864251,
+              17.3845401
+            ],
+            [
+              78.4863875,
+              17.3845401
+            ],
+            [
+              78.4863875,
+              17.3854599
+            ],
+            [
+              78.4864251,
+              17.3854599
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoAI Cadastre - AI Urban Parcel Mapping & Cadastral Feature Extraction System</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <!-- Leaflet-Geoman Free CSS (for vector polygon drawing and editing) -->
+  <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+  <!-- FontAwesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <!-- Google Fonts: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="dark-theme">
+  <!-- Top Navigation & Control Header -->
+  <header class="app-header">
+    <div class="brand-container">
+      <div class="brand-logo">
+        <i class="fa-solid fa-draw-polygon"></i>
+      </div>
+      <div class="brand-info">
+        <h1>GeoAI Cadastre Workstation</h1>
+        <span class="sub-text">AI-Based Automated Urban Parcel Mapping & Cadastral Feature Extraction</span>
+      </div>
+    </div>
+
+    <!-- Status & Mission Badge -->
+    <div class="header-badges">
+      <div class="badge-item">
+        <span class="badge-dot pulse"></span>
+        <span class="badge-label">DRONE MISSION:</span>
+        <span class="badge-value">MUNI-DRONE-SEC01</span>
+      </div>
+      <div class="badge-item">
+        <i class="fa-solid fa-satellite-dish"></i>
+        <span class="badge-label">GSD:</span>
+        <span class="badge-value">0.10 m (10 cm)</span>
+      </div>
+      <div class="badge-item">
+        <i class="fa-solid fa-crosshairs"></i>
+        <span class="badge-label">CRS:</span>
+        <span class="badge-value">WGS84 / UTM 44N</span>
+      </div>
+    </div>
+
+    <!-- Main Action Toolbar -->
+    <div class="header-actions">
+      <button id="btn-run-ai" class="btn btn-primary">
+        <i class="fa-solid fa-wand-magic-sparkles"></i> Run AI Extraction
+      </button>
+      <button id="btn-validate-topo" class="btn btn-secondary">
+        <i class="fa-solid fa-shield-halved"></i> Validate Topology
+      </button>
+      <button id="btn-gt-mode" class="btn btn-outline" title="Toggle GNSS Ground Truthing Inspector">
+        <i class="fa-solid fa-location-crosshairs"></i> Ground Truth
+      </button>
+
+      <!-- Export Dropdown -->
+      <div class="dropdown">
+        <button id="btn-export" class="btn btn-accent dropdown-toggle">
+          <i class="fa-solid fa-file-export"></i> Export <i class="fa-solid fa-chevron-down text-xs"></i>
+        </button>
+        <div class="dropdown-menu" id="export-menu">
+          <a href="/api/export/geojson" download="cadastral_parcels.geojson" class="dropdown-item">
+            <i class="fa-solid fa-code"></i> GeoJSON Vector Layer
+          </a>
+          <a href="/api/export/dxf" download="urban_cadastre_survey.dxf" class="dropdown-item">
+            <i class="fa-solid fa-vector-square"></i> AutoCAD DXF (Layers)
+          </a>
+          <a href="/api/export/csv" download="cadastral_ledger_ror.csv" class="dropdown-item">
+            <i class="fa-solid fa-table"></i> Cadastral Ledger (CSV)
+          </a>
+          <div class="dropdown-divider"></div>
+          <button id="btn-export-pdf" class="dropdown-item">
+            <i class="fa-solid fa-file-pdf"></i> Official Cadastral Survey Certificate (PDF)
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Workstation Layout -->
+  <div class="workstation-container">
+    
+    <!-- Left Sidebar: Layer Control & Cadastral Tools -->
+    <aside class="sidebar sidebar-left" id="sidebar-left">
+      <!-- Tabs for Left Panel -->
+      <div class="panel-tabs">
+        <button class="panel-tab active" data-tab="layers-tab">
+          <i class="fa-solid fa-layer-group"></i> Layers
+        </button>
+        <button class="panel-tab" data-tab="editing-tab">
+          <i class="fa-solid fa-pen-ruler"></i> Vector Tools
+        </button>
+        <button class="panel-tab" data-tab="gt-tab">
+          <i class="fa-solid fa-satellite"></i> Ground Truth
+        </button>
+      </div>
+
+      <!-- Tab 1: Layer Controller -->
+      <div class="tab-content active" id="layers-tab">
+        <div class="section-title">
+          <span>DRONE RASTER DATASETS</span>
+          <span class="info-tag">10cm GSD</span>
+        </div>
+        <div class="layer-group">
+          <label class="layer-item">
+            <input type="radio" name="raster-base" value="ori" checked />
+            <span class="layer-name">
+              <i class="fa-solid fa-camera"></i> Orthorectified Imagery (ORI RGB)
+            </span>
+          </label>
+          <label class="layer-item">
+            <input type="radio" name="raster-base" value="dsm" />
+            <span class="layer-name">
+              <i class="fa-solid fa-mountain"></i> Digital Surface Model (DSM Elevation)
+            </span>
+          </label>
+          <label class="layer-item">
+            <input type="radio" name="raster-base" value="dtm" />
+            <span class="layer-name">
+              <i class="fa-solid fa-mound"></i> Digital Terrain Model (DTM Bare Earth)
+            </span>
+          </label>
+          <label class="layer-item">
+            <input type="radio" name="raster-base" value="ndsm" />
+            <span class="layer-name">
+              <i class="fa-solid fa-chart-simple"></i> Normalized Height (nDSM = DSM - DTM)
+            </span>
+          </label>
+          <label class="layer-item">
+            <input type="radio" name="raster-base" value="osm" />
+            <span class="layer-name">
+              <i class="fa-solid fa-map"></i> OpenStreetMap Base Cartography
+            </span>
+          </label>
+        </div>
+
+        <div class="opacity-slider-container">
+          <div class="slider-label">
+            <span>Drone Raster Opacity</span>
+            <span id="raster-opacity-val">90%</span>
+          </div>
+          <input type="range" id="raster-opacity" min="0" max="100" value="90" class="slider" />
+        </div>
+
+        <div class="section-title mt-4">
+          <span>CADASTRAL VECTOR LAYERS</span>
+        </div>
+        <div class="layer-group">
+          <label class="layer-item checkbox-item">
+            <input type="checkbox" id="layer-parcels" checked />
+            <span class="legend-color legend-parcel"></span>
+            <span class="layer-name">Cadastral Parcels (ULPIN Boundaries)</span>
+            <span class="layer-count" id="count-parcels">80</span>
+          </label>
+          <label class="layer-item checkbox-item">
+            <input type="checkbox" id="layer-buildings" checked />
+            <span class="legend-color legend-building"></span>
+            <span class="layer-name">Delineated Building Footprints</span>
+            <span class="layer-count" id="count-buildings">70</span>
+          </label>
+          <label class="layer-item checkbox-item">
+            <input type="checkbox" id="layer-roads" checked />
+            <span class="legend-color legend-road"></span>
+            <span class="layer-name">Roads & Access Corridors</span>
+            <span class="layer-count" id="count-roads">6</span>
+          </label>
+          <label class="layer-item checkbox-item">
+            <input type="checkbox" id="layer-legacy" />
+            <span class="legend-color legend-legacy"></span>
+            <span class="layer-name">Legacy Cadastre (Historical Shift)</span>
+            <span class="layer-count">80</span>
+          </label>
+          <label class="layer-item checkbox-item">
+            <input type="checkbox" id="layer-gt" checked />
+            <span class="legend-color legend-gt"></span>
+            <span class="layer-name">GNSS / CORS Survey Benchmarks</span>
+            <span class="layer-count" id="count-gt">7</span>
+          </label>
+        </div>
+
+        <div class="section-title mt-4">
+          <span>TOPOLOGY QA/QC ALERTS</span>
+        </div>
+        <div class="layer-group">
+          <label class="layer-item checkbox-item alert-item">
+            <input type="checkbox" id="layer-errors" checked />
+            <span class="legend-color legend-error"></span>
+            <span class="layer-name">Boundary Conflicts & Encroachments</span>
+            <span class="badge-alert" id="count-errors">1</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Tab 2: Vector Tools & Editing -->
+      <div class="tab-content" id="editing-tab">
+        <div class="section-title">
+          <span>INTERACTIVE CADASTRAL EDITING</span>
+        </div>
+        <p class="panel-desc">
+          Refine parcel boundaries, adjust vertices, or split/merge land parcels directly on the map.
+        </p>
+
+        <div class="tool-btn-grid">
+          <button id="tool-edit-vertices" class="tool-btn">
+            <i class="fa-solid fa-bezier-curve"></i>
+            <span>Edit Vertices</span>
+          </button>
+          <button id="tool-split-parcel" class="tool-btn">
+            <i class="fa-solid fa-scissors"></i>
+            <span>Split Parcel</span>
+          </button>
+          <button id="tool-merge-parcels" class="tool-btn">
+            <i class="fa-solid fa-object-group"></i>
+            <span>Merge Parcels</span>
+          </button>
+          <button id="tool-snap-all" class="tool-btn">
+            <i class="fa-solid fa-magnet"></i>
+            <span>Snap All (15cm)</span>
+          </button>
+        </div>
+
+        <div class="edit-instructions mt-3" id="edit-instructions-box">
+          <div class="instruction-header">
+            <i class="fa-solid fa-circle-info"></i> Instruction:
+          </div>
+          <div class="instruction-text" id="edit-instruction-text">
+            Click on any parcel polygon to view legal attributes or select an editing tool above.
+          </div>
+        </div>
+
+        <div class="action-buttons mt-3">
+          <button id="btn-save-edits" class="btn btn-success w-full" disabled>
+            <i class="fa-solid fa-check"></i> Commit Geometry Updates
+          </button>
+          <button id="btn-cancel-edits" class="btn btn-outline w-full mt-2" style="display:none;">
+            <i class="fa-solid fa-xmark"></i> Cancel
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab 3: Ground Truthing Inspector -->
+      <div class="tab-content" id="gt-tab">
+        <div class="section-title">
+          <span>GNSS / CORS GROUND TRUTHING</span>
+        </div>
+        <p class="panel-desc">
+          Click any point on the map to evaluate RTK CORS precision and compare AI parcel delineation against surveyed ground control benchmarks.
+        </p>
+
+        <div class="gt-card" id="gt-inspector-card">
+          <div class="gt-header">
+            <span class="gt-title"><i class="fa-solid fa-crosshairs text-accent"></i> Field Inspection Point</span>
+            <span class="gt-status-badge" id="gt-badge">ACTIVE INSPECTION</span>
+          </div>
+          <div class="gt-data-rows">
+            <div class="gt-row">
+              <span class="lbl">Surveyed Lon:</span>
+              <span class="val" id="gt-lon">78.486700</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Surveyed Lat:</span>
+              <span class="val" id="gt-lat">17.385000</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Terrain Elevation:</span>
+              <span class="val" id="gt-elev">501.42 m</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Nearest Benchmark:</span>
+              <span class="val" id="gt-benchmark">CORS-BM-02 (Central Intersection)</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Benchmark Distance:</span>
+              <span class="val" id="gt-bench-dist">0.00 m</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Enclosing Parcel:</span>
+              <span class="val highlight" id="gt-parcel">PARCEL-SEC01-0101</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">ULPIN Geocode:</span>
+              <span class="val code-font" id="gt-ulpin">IND1738500784867</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">GNSS Precision:</span>
+              <span class="val text-success" id="gt-precision">H: ±1.2cm | V: ±2.4cm</span>
+            </div>
+          </div>
+        </div>
+
+        <button id="btn-log-gt" class="btn btn-secondary w-full mt-3">
+          <i class="fa-solid fa-clipboard-check"></i> Log Field GT Validation Point
+        </button>
+      </div>
+    </aside>
+
+    <!-- Center: Interactive Web-GIS Map Canvas -->
+    <main class="map-viewport">
+      <div id="map" class="map-canvas"></div>
+
+      <!-- Map Overlay Floating Controls -->
+      <div class="map-floating-top">
+        <!-- Swipe / Split View Mode Toggle -->
+        <div class="swipe-toggle-pill">
+          <button id="btn-toggle-swipe" class="pill-btn">
+            <i class="fa-solid fa-arrows-split-up-and-left"></i> Drone Swipe Compare
+          </button>
+        </div>
+
+        <!-- Quick Zoom Presets -->
+        <div class="zoom-presets">
+          <button id="btn-zoom-all" class="preset-btn" title="Full Sector View">
+            <i class="fa-solid fa-expand"></i> Full Sector
+          </button>
+          <button id="btn-zoom-conflicts" class="preset-btn alert" title="Zoom to Conflicts / Encroachments">
+            <i class="fa-solid fa-triangle-exclamation"></i> Encroachments
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Coordinates & Scale Bar -->
+      <div class="map-floating-bottom">
+        <div class="map-coords-pill">
+          <i class="fa-regular fa-compass"></i>
+          <span id="mouse-coords">Lat: 17.385000° N | Lon: 78.486700° E | Elev: 501.2m</span>
+        </div>
+      </div>
+
+      <!-- Swipe Bar Divider (Visible when swipe mode is activated) -->
+      <div class="swipe-divider" id="swipe-divider" style="display: none;">
+        <div class="swipe-handle">
+          <i class="fa-solid fa-grip-lines-vertical"></i>
+        </div>
+      </div>
+
+      <!-- Extraction Progress Modal / Toast -->
+      <div class="progress-toast" id="progress-toast" style="display: none;">
+        <div class="toast-spinner">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+        </div>
+        <div class="toast-content">
+          <div class="toast-title" id="toast-title">GeoAI Extraction in Progress...</div>
+          <div class="toast-msg" id="toast-msg">Segmenting building footprints and road corridors...</div>
+          <div class="toast-bar">
+            <div class="toast-bar-fill" id="toast-bar-fill" style="width: 45%;"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Right Sidebar: Cadastral Ledger, QA/QC Audit, & Spatial Analytics -->
+    <aside class="sidebar sidebar-right" id="sidebar-right">
+      <!-- Tabs for Right Panel -->
+      <div class="panel-tabs">
+        <button class="panel-tab active" data-tab="ledger-tab">
+          <i class="fa-solid fa-book-bookmark"></i> Ledger
+        </button>
+        <button class="panel-tab" data-tab="topology-tab">
+          <i class="fa-solid fa-clipboard-check"></i> QA / Audit
+        </button>
+        <button class="panel-tab" data-tab="analytics-tab">
+          <i class="fa-solid fa-chart-pie"></i> Analytics
+        </button>
+      </div>
+
+      <!-- Tab 1: Cadastral Record of Rights (RoR) Ledger -->
+      <div class="tab-content active" id="ledger-tab">
+        <div class="section-title">
+          <span>CADASTRAL RECORD OF RIGHTS (RoR)</span>
+        </div>
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="ledger-search" placeholder="Search Parcel ID or ULPIN..." />
+        </div>
+
+        <div class="filter-pills">
+          <button class="pill-filter active" data-filter="all">All</button>
+          <button class="pill-filter" data-filter="Residential">Residential</button>
+          <button class="pill-filter" data-filter="Commercial">Commercial</button>
+          <button class="pill-filter" data-filter="Institutional">Institutional</button>
+          <button class="pill-filter" data-filter="Vacant / Open">Vacant</button>
+        </div>
+
+        <!-- Parcel Ledger Table -->
+        <div class="ledger-table-container">
+          <table class="ledger-table">
+            <thead>
+              <tr>
+                <th>Parcel ID</th>
+                <th>Land Use</th>
+                <th>Area (m²)</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="ledger-table-body">
+              <!-- Dynamically populated via JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Selected Parcel Details Card -->
+        <div class="selected-parcel-card mt-3" id="selected-parcel-card" style="display:none;">
+          <div class="card-header">
+            <span class="card-title" id="card-parcel-id">PARCEL-SEC01-0105</span>
+            <span class="card-badge" id="card-land-use">Residential</span>
+          </div>
+          <div class="card-body">
+            <div class="card-field">
+              <span class="k">ULPIN:</span>
+              <span class="v code-font" id="card-ulpin">IND1738500784867</span>
+            </div>
+            <div class="card-field">
+              <span class="k">Area:</span>
+              <span class="v" id="card-area">142.80 m² (1,537.1 sq.ft)</span>
+            </div>
+            <div class="card-field">
+              <span class="k">Perimeter:</span>
+              <span class="v" id="card-perimeter">48.20 m</span>
+            </div>
+            <div class="card-field">
+              <span class="k">Structure:</span>
+              <span class="v" id="card-structure">Building Detected (3 Storeys)</span>
+            </div>
+            <div class="card-field">
+              <span class="k">Survey Status:</span>
+              <span class="v text-success" id="card-status">Delineated (Drone GeoAI)</span>
+            </div>
+            <div class="card-actions mt-2">
+              <button id="btn-card-cert" class="btn btn-sm btn-primary w-full">
+                <i class="fa-solid fa-file-pdf"></i> Download Official Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Topological QA/QC & Compliance Audit -->
+      <div class="tab-content" id="topology-tab">
+        <div class="section-title">
+          <span>TOPOLOGY VALIDATION & QA/QC</span>
+        </div>
+
+        <!-- Overall Score Gauge -->
+        <div class="compliance-gauge-card">
+          <div class="gauge-circle">
+            <span class="gauge-value" id="topo-score">98</span>
+            <span class="gauge-unit">/100</span>
+          </div>
+          <div class="gauge-info">
+            <div class="gauge-title">Cadastral Compliance</div>
+            <div class="gauge-subtitle" id="topo-verdict">Statutory Standards Met</div>
+          </div>
+        </div>
+
+        <!-- QA/QC Counts Grid -->
+        <div class="qa-grid mt-3">
+          <div class="qa-metric">
+            <span class="qa-num text-danger" id="qa-overlaps">0</span>
+            <span class="qa-lbl">Boundary Overlaps</span>
+          </div>
+          <div class="qa-metric">
+            <span class="qa-num text-warning" id="qa-encroachments">1</span>
+            <span class="qa-lbl">Encroachments</span>
+          </div>
+          <div class="qa-metric">
+            <span class="qa-num text-purple" id="qa-gaps">0</span>
+            <span class="qa-lbl">Cadastral Gaps</span>
+          </div>
+          <div class="qa-metric">
+            <span class="qa-num text-muted" id="qa-slivers">0</span>
+            <span class="qa-lbl">Sliver Polygons</span>
+          </div>
+        </div>
+
+        <!-- Legacy Alignment Metrics -->
+        <div class="legacy-card mt-3">
+          <div class="legacy-title">
+            <i class="fa-solid fa-clock-rotate-left"></i> Legacy GIS Reconciliation
+          </div>
+          <div class="legacy-body">
+            <div class="legacy-row">
+              <span>Mean Historical Shift:</span>
+              <span class="val" id="legacy-shift">0.65 m</span>
+            </div>
+            <div class="legacy-row">
+              <span>Max Displacement:</span>
+              <span class="val" id="legacy-max">1.55 m</span>
+            </div>
+            <div class="legacy-row">
+              <span>Parcels Rectified:</span>
+              <span class="val" id="legacy-count">80 / 80</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Detected Issues List -->
+        <div class="section-title mt-4">
+          <span>FLAGGED TOPOLOGY ISSUES</span>
+        </div>
+        <div class="issues-list" id="topology-issues-list">
+          <!-- Dynamically populated -->
+        </div>
+      </div>
+
+      <!-- Tab 3: Spatial Analytics & Statistics -->
+      <div class="tab-content" id="analytics-tab">
+        <div class="section-title">
+          <span>URBAN LAND-USE & METRICS</span>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="stat-summary-grid">
+          <div class="stat-item">
+            <span class="stat-lbl">Total Surveyed Area</span>
+            <span class="stat-val" id="stat-total-area">10,485 m²</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-lbl">Ground Built-Up Ratio</span>
+            <span class="stat-val text-accent" id="stat-coverage">42.5%</span>
+          </div>
+        </div>
+
+        <!-- Chart Container: Land Use Distribution -->
+        <div class="chart-box mt-3">
+          <div class="chart-header">Land-Use Distribution</div>
+          <canvas id="chart-land-use" height="190"></canvas>
+        </div>
+
+        <!-- Chart Container: Parcel Area Stratification -->
+        <div class="chart-box mt-3">
+          <div class="chart-header">Building Height Stratification (nDSM)</div>
+          <canvas id="chart-heights" height="160"></canvas>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- Modal for Official Cadastral Survey Certificate -->
+  <div class="modal-backdrop" id="modal-cert" style="display:none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-certificate text-accent"></i> Official Cadastral Survey Certificate</h3>
+        <button class="modal-close" id="btn-close-cert-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Select a parcel to generate and download the authenticated Cadastral Survey Certificate (PDF) containing high-precision measurements, ULPIN Bhu-Aadhaar reference, and topological compliance audit.</p>
+        <div class="form-group mt-3">
+          <label>Target Parcel:</label>
+          <select id="select-cert-parcel" class="form-control">
+            <!-- Populated via JS -->
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="btn-cancel-modal">Cancel</button>
+        <button class="btn btn-primary" id="btn-download-modal-cert">
+          <i class="fa-solid fa-file-arrow-down"></i> Generate & Download PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <!-- Leaflet-Geoman Free JS -->
+  <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Custom Workstation App Script -->
+  <script src="app.js"></script>
+</body>
+</html>

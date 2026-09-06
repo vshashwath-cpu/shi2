@@ -1,0 +1,2665 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0102",
+        "parcel_id": "PARCEL-SEC01-0101",
+        "height_m": 6.85,
+        "floors": 2,
+        "area_sqm": 30.6,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862962,
+              17.3854285
+            ],
+            [
+              78.4862962,
+              17.3853746
+            ],
+            [
+              78.4862482,
+              17.3853746
+            ],
+            [
+              78.4862482,
+              17.3854285
+            ],
+            [
+              78.4862962,
+              17.3854285
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0103",
+        "parcel_id": "PARCEL-SEC01-0102",
+        "height_m": 6.77,
+        "floors": 2,
+        "area_sqm": 36.48,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863771,
+              17.3854303
+            ],
+            [
+              78.4863771,
+              17.3853728
+            ],
+            [
+              78.4863235,
+              17.3853728
+            ],
+            [
+              78.4863235,
+              17.3854303
+            ],
+            [
+              78.4863771,
+              17.3854303
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0104",
+        "parcel_id": "PARCEL-SEC01-0103",
+        "height_m": 8.73,
+        "floors": 3,
+        "area_sqm": 29.58,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862999,
+              17.385345
+            ],
+            [
+              78.4862999,
+              17.3852928
+            ],
+            [
+              78.4862519,
+              17.3852928
+            ],
+            [
+              78.4862519,
+              17.385345
+            ],
+            [
+              78.4862999,
+              17.385345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0106",
+        "parcel_id": "PARCEL-SEC01-0105",
+        "height_m": 6.17,
+        "floors": 2,
+        "area_sqm": 35.34,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4864939,
+              17.3854285
+            ],
+            [
+              78.4864939,
+              17.3853728
+            ],
+            [
+              78.4864402,
+              17.3853728
+            ],
+            [
+              78.4864402,
+              17.3854285
+            ],
+            [
+              78.4864939,
+              17.3854285
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0107",
+        "parcel_id": "PARCEL-SEC01-0106",
+        "height_m": 6.62,
+        "floors": 2,
+        "area_sqm": 31.32,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865701,
+              17.3854258
+            ],
+            [
+              78.4865701,
+              17.3853737
+            ],
+            [
+              78.4865193,
+              17.3853737
+            ],
+            [
+              78.4865193,
+              17.3854258
+            ],
+            [
+              78.4865701,
+              17.3854258
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0109",
+        "parcel_id": "PARCEL-SEC01-0108",
+        "height_m": 4.62,
+        "floors": 1,
+        "area_sqm": 36.48,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4864939,
+              17.385345
+            ],
+            [
+              78.4864939,
+              17.3852875
+            ],
+            [
+              78.4864402,
+              17.3852875
+            ],
+            [
+              78.4864402,
+              17.385345
+            ],
+            [
+              78.4864939,
+              17.385345
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0110",
+        "parcel_id": "PARCEL-SEC01-0109",
+        "height_m": 3.89,
+        "floors": 1,
+        "area_sqm": 29.07,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865692,
+              17.3853441
+            ],
+            [
+              78.4865692,
+              17.3852928
+            ],
+            [
+              78.4865212,
+              17.3852928
+            ],
+            [
+              78.4865212,
+              17.3853441
+            ],
+            [
+              78.4865692,
+              17.3853441
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0111",
+        "parcel_id": "PARCEL-SEC01-0110",
+        "height_m": 4.25,
+        "floors": 1,
+        "area_sqm": 30.78,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4866482,
+              17.3853423
+            ],
+            [
+              78.4866482,
+              17.3852911
+            ],
+            [
+              78.4865974,
+              17.3852911
+            ],
+            [
+              78.4865974,
+              17.3853423
+            ],
+            [
+              78.4866482,
+              17.3853423
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0112",
+        "parcel_id": "PARCEL-SEC01-0111",
+        "height_m": 12.73,
+        "floors": 4,
+        "area_sqm": 36.04,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862999,
+              17.3852129
+            ],
+            [
+              78.4862999,
+              17.3851518
+            ],
+            [
+              78.4862501,
+              17.3851518
+            ],
+            [
+              78.4862501,
+              17.3852129
+            ],
+            [
+              78.4862999,
+              17.3852129
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0113",
+        "parcel_id": "PARCEL-SEC01-0112",
+        "height_m": 15.17,
+        "floors": 5,
+        "area_sqm": 36.4,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863724,
+              17.3852156
+            ],
+            [
+              78.4863724,
+              17.3851527
+            ],
+            [
+              78.4863235,
+              17.3851527
+            ],
+            [
+              78.4863235,
+              17.3852156
+            ],
+            [
+              78.4863724,
+              17.3852156
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0115",
+        "parcel_id": "PARCEL-SEC01-0114",
+        "height_m": 17.91,
+        "floors": 6,
+        "area_sqm": 35.7,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863762,
+              17.3851168
+            ],
+            [
+              78.4863762,
+              17.3850539
+            ],
+            [
+              78.4863282,
+              17.3850539
+            ],
+            [
+              78.4863282,
+              17.3851168
+            ],
+            [
+              78.4863762,
+              17.3851168
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0117",
+        "parcel_id": "PARCEL-SEC01-0116",
+        "height_m": 7.46,
+        "floors": 2,
+        "area_sqm": 34.17,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865682,
+              17.3852138
+            ],
+            [
+              78.4865682,
+              17.3851536
+            ],
+            [
+              78.4865202,
+              17.3851536
+            ],
+            [
+              78.4865202,
+              17.3852138
+            ],
+            [
+              78.4865682,
+              17.3852138
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0118",
+        "parcel_id": "PARCEL-SEC01-0117",
+        "height_m": 6.4,
+        "floors": 2,
+        "area_sqm": 40.47,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4866511,
+              17.3852138
+            ],
+            [
+              78.4866511,
+              17.38515
+            ],
+            [
+              78.4865974,
+              17.38515
+            ],
+            [
+              78.4865974,
+              17.3852138
+            ],
+            [
+              78.4866511,
+              17.3852138
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0120",
+        "parcel_id": "PARCEL-SEC01-0119",
+        "height_m": 4.34,
+        "floors": 1,
+        "area_sqm": 37.26,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865701,
+              17.3851168
+            ],
+            [
+              78.4865701,
+              17.3850548
+            ],
+            [
+              78.4865193,
+              17.3850548
+            ],
+            [
+              78.4865193,
+              17.3851168
+            ],
+            [
+              78.4865701,
+              17.3851168
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0121",
+        "parcel_id": "PARCEL-SEC01-0120",
+        "height_m": 8.63,
+        "floors": 3,
+        "area_sqm": 36.21,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4866482,
+              17.3851195
+            ],
+            [
+              78.4866482,
+              17.3850557
+            ],
+            [
+              78.4866002,
+              17.3850557
+            ],
+            [
+              78.4866002,
+              17.3851195
+            ],
+            [
+              78.4866482,
+              17.3851195
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0122",
+        "parcel_id": "PARCEL-SEC01-0121",
+        "height_m": 12.63,
+        "floors": 4,
+        "area_sqm": 33.28,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867988,
+              17.3854285
+            ],
+            [
+              78.4867988,
+              17.385371
+            ],
+            [
+              78.4867499,
+              17.385371
+            ],
+            [
+              78.4867499,
+              17.3854285
+            ],
+            [
+              78.4867988,
+              17.3854285
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0123",
+        "parcel_id": "PARCEL-SEC01-0122",
+        "height_m": 14.03,
+        "floors": 4,
+        "area_sqm": 29.0,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486876,
+              17.3854276
+            ],
+            [
+              78.486876,
+              17.3853755
+            ],
+            [
+              78.486829,
+              17.3853755
+            ],
+            [
+              78.486829,
+              17.3854276
+            ],
+            [
+              78.486876,
+              17.3854276
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0124",
+        "parcel_id": "PARCEL-SEC01-0123",
+        "height_m": 15.27,
+        "floors": 5,
+        "area_sqm": 46.62,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486972,
+              17.3854303
+            ],
+            [
+              78.486972,
+              17.3853737
+            ],
+            [
+              78.4869024,
+              17.3853737
+            ],
+            [
+              78.4869024,
+              17.3854303
+            ],
+            [
+              78.486972,
+              17.3854303
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0125",
+        "parcel_id": "PARCEL-SEC01-0124",
+        "height_m": 15.94,
+        "floors": 5,
+        "area_sqm": 33.66,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867979,
+              17.3853467
+            ],
+            [
+              78.4867979,
+              17.3852875
+            ],
+            [
+              78.4867499,
+              17.3852875
+            ],
+            [
+              78.4867499,
+              17.3853467
+            ],
+            [
+              78.4867979,
+              17.3853467
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0126",
+        "parcel_id": "PARCEL-SEC01-0125",
+        "height_m": 10.83,
+        "floors": 3,
+        "area_sqm": 36.18,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486876,
+              17.3853476
+            ],
+            [
+              78.486876,
+              17.3852875
+            ],
+            [
+              78.4868252,
+              17.3852875
+            ],
+            [
+              78.4868252,
+              17.3853476
+            ],
+            [
+              78.486876,
+              17.3853476
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0127",
+        "parcel_id": "PARCEL-SEC01-0126",
+        "height_m": 15.82,
+        "floors": 5,
+        "area_sqm": 35.1,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486956,
+              17.3853467
+            ],
+            [
+              78.486956,
+              17.3852884
+            ],
+            [
+              78.4869052,
+              17.3852884
+            ],
+            [
+              78.4869052,
+              17.3853467
+            ],
+            [
+              78.486956,
+              17.3853467
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0128",
+        "parcel_id": "PARCEL-SEC01-0127",
+        "height_m": 4.92,
+        "floors": 2,
+        "area_sqm": 32.33,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870709,
+              17.3854258
+            ],
+            [
+              78.4870709,
+              17.385371
+            ],
+            [
+              78.487021,
+              17.385371
+            ],
+            [
+              78.487021,
+              17.3854258
+            ],
+            [
+              78.4870709,
+              17.3854258
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0129",
+        "parcel_id": "PARCEL-SEC01-0128",
+        "height_m": 7.29,
+        "floors": 2,
+        "area_sqm": 36.48,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871499,
+              17.3854294
+            ],
+            [
+              78.4871499,
+              17.3853719
+            ],
+            [
+              78.4870963,
+              17.3853719
+            ],
+            [
+              78.4870963,
+              17.3854294
+            ],
+            [
+              78.4871499,
+              17.3854294
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0130",
+        "parcel_id": "PARCEL-SEC01-0129",
+        "height_m": 7.73,
+        "floors": 2,
+        "area_sqm": 31.35,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870756,
+              17.3853423
+            ],
+            [
+              78.4870756,
+              17.3852911
+            ],
+            [
+              78.4870238,
+              17.3852911
+            ],
+            [
+              78.4870238,
+              17.3853423
+            ],
+            [
+              78.4870756,
+              17.3853423
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0131",
+        "parcel_id": "PARCEL-SEC01-0130",
+        "height_m": 4.72,
+        "floors": 1,
+        "area_sqm": 36.18,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871499,
+              17.3853476
+            ],
+            [
+              78.4871499,
+              17.3852875
+            ],
+            [
+              78.4870991,
+              17.3852875
+            ],
+            [
+              78.4870991,
+              17.3853476
+            ],
+            [
+              78.4871499,
+              17.3853476
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0132",
+        "parcel_id": "PARCEL-SEC01-0131",
+        "height_m": 6.92,
+        "floors": 2,
+        "area_sqm": 35.64,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867998,
+              17.3852138
+            ],
+            [
+              78.4867998,
+              17.3851545
+            ],
+            [
+              78.4867489,
+              17.3851545
+            ],
+            [
+              78.4867489,
+              17.3852138
+            ],
+            [
+              78.4867998,
+              17.3852138
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0133",
+        "parcel_id": "PARCEL-SEC01-0132",
+        "height_m": 9.22,
+        "floors": 3,
+        "area_sqm": 36.04,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868788,
+              17.3852111
+            ],
+            [
+              78.4868788,
+              17.38515
+            ],
+            [
+              78.486829,
+              17.38515
+            ],
+            [
+              78.486829,
+              17.3852111
+            ],
+            [
+              78.4868788,
+              17.3852111
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0134",
+        "parcel_id": "PARCEL-SEC01-0133",
+        "height_m": 7.18,
+        "floors": 2,
+        "area_sqm": 38.88,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486956,
+              17.3852156
+            ],
+            [
+              78.486956,
+              17.3851509
+            ],
+            [
+              78.4869052,
+              17.3851509
+            ],
+            [
+              78.4869052,
+              17.3852156
+            ],
+            [
+              78.486956,
+              17.3852156
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0135",
+        "parcel_id": "PARCEL-SEC01-0134",
+        "height_m": 6.12,
+        "floors": 2,
+        "area_sqm": 37.96,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868007,
+              17.3851186
+            ],
+            [
+              78.4868007,
+              17.385053
+            ],
+            [
+              78.4867518,
+              17.385053
+            ],
+            [
+              78.4867518,
+              17.3851186
+            ],
+            [
+              78.4868007,
+              17.3851186
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0136",
+        "parcel_id": "PARCEL-SEC01-0135",
+        "height_m": 5.16,
+        "floors": 2,
+        "area_sqm": 37.8,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868798,
+              17.3851168
+            ],
+            [
+              78.4868798,
+              17.3850539
+            ],
+            [
+              78.486829,
+              17.3850539
+            ],
+            [
+              78.486829,
+              17.3851168
+            ],
+            [
+              78.4868798,
+              17.3851168
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0137",
+        "parcel_id": "PARCEL-SEC01-0136",
+        "height_m": 3.99,
+        "floors": 1,
+        "area_sqm": 39.2,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869551,
+              17.3851195
+            ],
+            [
+              78.4869551,
+              17.3850566
+            ],
+            [
+              78.4869024,
+              17.3850566
+            ],
+            [
+              78.4869024,
+              17.3851195
+            ],
+            [
+              78.4869551,
+              17.3851195
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0138",
+        "parcel_id": "PARCEL-SEC01-0137",
+        "height_m": 4.3,
+        "floors": 1,
+        "area_sqm": 34.0,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870709,
+              17.3852156
+            ],
+            [
+              78.4870709,
+              17.3851545
+            ],
+            [
+              78.4870238,
+              17.3851545
+            ],
+            [
+              78.4870238,
+              17.3852156
+            ],
+            [
+              78.4870709,
+              17.3852156
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0139",
+        "parcel_id": "PARCEL-SEC01-0138",
+        "height_m": 5.94,
+        "floors": 2,
+        "area_sqm": 41.44,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871528,
+              17.3852165
+            ],
+            [
+              78.4871528,
+              17.38515
+            ],
+            [
+              78.4871001,
+              17.38515
+            ],
+            [
+              78.4871001,
+              17.3852165
+            ],
+            [
+              78.4871528,
+              17.3852165
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0140",
+        "parcel_id": "PARCEL-SEC01-0139",
+        "height_m": 5.83,
+        "floors": 2,
+        "area_sqm": 39.9,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870737,
+              17.3851177
+            ],
+            [
+              78.4870737,
+              17.3850548
+            ],
+            [
+              78.48702,
+              17.3850548
+            ],
+            [
+              78.48702,
+              17.3851177
+            ],
+            [
+              78.4870737,
+              17.3851177
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0141",
+        "parcel_id": "PARCEL-SEC01-0140",
+        "height_m": 5.47,
+        "floors": 2,
+        "area_sqm": 37.26,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871528,
+              17.3851195
+            ],
+            [
+              78.4871528,
+              17.3850575
+            ],
+            [
+              78.4871019,
+              17.3850575
+            ],
+            [
+              78.4871019,
+              17.3851195
+            ],
+            [
+              78.4871528,
+              17.3851195
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0142",
+        "parcel_id": "PARCEL-SEC01-0141",
+        "height_m": 8.76,
+        "floors": 3,
+        "area_sqm": 34.2,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863018,
+              17.3849434
+            ],
+            [
+              78.4863018,
+              17.3848895
+            ],
+            [
+              78.4862482,
+              17.3848895
+            ],
+            [
+              78.4862482,
+              17.3849434
+            ],
+            [
+              78.4863018,
+              17.3849434
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0143",
+        "parcel_id": "PARCEL-SEC01-0142",
+        "height_m": 7.5,
+        "floors": 2,
+        "area_sqm": 33.8,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863743,
+              17.3849461
+            ],
+            [
+              78.4863743,
+              17.3848877
+            ],
+            [
+              78.4863254,
+              17.3848877
+            ],
+            [
+              78.4863254,
+              17.3849461
+            ],
+            [
+              78.4863743,
+              17.3849461
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0144",
+        "parcel_id": "PARCEL-SEC01-0143",
+        "height_m": 5.4,
+        "floors": 2,
+        "area_sqm": 35.84,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863009,
+              17.3848581
+            ],
+            [
+              78.4863009,
+              17.3848006
+            ],
+            [
+              78.4862482,
+              17.3848006
+            ],
+            [
+              78.4862482,
+              17.3848581
+            ],
+            [
+              78.4863009,
+              17.3848581
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0145",
+        "parcel_id": "PARCEL-SEC01-0144",
+        "height_m": 3.93,
+        "floors": 1,
+        "area_sqm": 33.66,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863715,
+              17.3848581
+            ],
+            [
+              78.4863715,
+              17.3847988
+            ],
+            [
+              78.4863235,
+              17.3847988
+            ],
+            [
+              78.4863235,
+              17.3848581
+            ],
+            [
+              78.4863715,
+              17.3848581
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0146",
+        "parcel_id": "PARCEL-SEC01-0145",
+        "height_m": 8.51,
+        "floors": 3,
+        "area_sqm": 32.45,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4864929,
+              17.3849425
+            ],
+            [
+              78.4864929,
+              17.3848895
+            ],
+            [
+              78.4864411,
+              17.3848895
+            ],
+            [
+              78.4864411,
+              17.3849425
+            ],
+            [
+              78.4864929,
+              17.3849425
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0147",
+        "parcel_id": "PARCEL-SEC01-0146",
+        "height_m": 8.92,
+        "floors": 3,
+        "area_sqm": 37.12,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486572,
+              17.3849434
+            ],
+            [
+              78.486572,
+              17.3848859
+            ],
+            [
+              78.4865174,
+              17.3848859
+            ],
+            [
+              78.4865174,
+              17.3849434
+            ],
+            [
+              78.486572,
+              17.3849434
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0148",
+        "parcel_id": "PARCEL-SEC01-0147",
+        "height_m": 3.96,
+        "floors": 1,
+        "area_sqm": 33.39,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486652,
+              17.3849461
+            ],
+            [
+              78.486652,
+              17.3848895
+            ],
+            [
+              78.4866021,
+              17.3848895
+            ],
+            [
+              78.4866021,
+              17.3849461
+            ],
+            [
+              78.486652,
+              17.3849461
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0149",
+        "parcel_id": "PARCEL-SEC01-0148",
+        "height_m": 8.56,
+        "floors": 3,
+        "area_sqm": 36.58,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4864929,
+              17.3848554
+            ],
+            [
+              78.4864929,
+              17.3847997
+            ],
+            [
+              78.4864374,
+              17.3847997
+            ],
+            [
+              78.4864374,
+              17.3848554
+            ],
+            [
+              78.4864929,
+              17.3848554
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0150",
+        "parcel_id": "PARCEL-SEC01-0149",
+        "height_m": 5.44,
+        "floors": 2,
+        "area_sqm": 35.91,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865701,
+              17.3848536
+            ],
+            [
+              78.4865701,
+              17.384797
+            ],
+            [
+              78.4865164,
+              17.384797
+            ],
+            [
+              78.4865164,
+              17.3848536
+            ],
+            [
+              78.4865701,
+              17.3848536
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0151",
+        "parcel_id": "PARCEL-SEC01-0150",
+        "height_m": 6.71,
+        "floors": 2,
+        "area_sqm": 31.5,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4866492,
+              17.3848572
+            ],
+            [
+              78.4866492,
+              17.3848006
+            ],
+            [
+              78.4866021,
+              17.3848006
+            ],
+            [
+              78.4866021,
+              17.3848572
+            ],
+            [
+              78.4866492,
+              17.3848572
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0157",
+        "parcel_id": "PARCEL-SEC01-0156",
+        "height_m": 9.25,
+        "floors": 3,
+        "area_sqm": 31.36,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865682,
+              17.3847197
+            ],
+            [
+              78.4865682,
+              17.3846622
+            ],
+            [
+              78.4865221,
+              17.3846622
+            ],
+            [
+              78.4865221,
+              17.3847197
+            ],
+            [
+              78.4865682,
+              17.3847197
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0158",
+        "parcel_id": "PARCEL-SEC01-0157",
+        "height_m": 8.58,
+        "floors": 3,
+        "area_sqm": 31.72,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4866501,
+              17.3847197
+            ],
+            [
+              78.4866501,
+              17.3846649
+            ],
+            [
+              78.4866012,
+              17.3846649
+            ],
+            [
+              78.4866012,
+              17.3847197
+            ],
+            [
+              78.4866501,
+              17.3847197
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0159",
+        "parcel_id": "PARCEL-SEC01-0158",
+        "height_m": 9.07,
+        "floors": 3,
+        "area_sqm": 36.3,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4864901,
+              17.3846317
+            ],
+            [
+              78.4864901,
+              17.3845724
+            ],
+            [
+              78.4864383,
+              17.3845724
+            ],
+            [
+              78.4864383,
+              17.3846317
+            ],
+            [
+              78.4864901,
+              17.3846317
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0160",
+        "parcel_id": "PARCEL-SEC01-0159",
+        "height_m": 4.52,
+        "floors": 1,
+        "area_sqm": 38.64,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486571,
+              17.3846326
+            ],
+            [
+              78.486571,
+              17.3845706
+            ],
+            [
+              78.4865183,
+              17.3845706
+            ],
+            [
+              78.4865183,
+              17.3846326
+            ],
+            [
+              78.486571,
+              17.3846326
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0161",
+        "parcel_id": "PARCEL-SEC01-0160",
+        "height_m": 7.6,
+        "floors": 2,
+        "area_sqm": 37.17,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4866539,
+              17.3846299
+            ],
+            [
+              78.4866539,
+              17.3845733
+            ],
+            [
+              78.4865983,
+              17.3845733
+            ],
+            [
+              78.4865983,
+              17.3846299
+            ],
+            [
+              78.4866539,
+              17.3846299
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0162",
+        "parcel_id": "PARCEL-SEC01-0161",
+        "height_m": 6.12,
+        "floors": 2,
+        "area_sqm": 35.2,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868026,
+              17.384947
+            ],
+            [
+              78.4868026,
+              17.3848895
+            ],
+            [
+              78.4867508,
+              17.3848895
+            ],
+            [
+              78.4867508,
+              17.384947
+            ],
+            [
+              78.4868026,
+              17.384947
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0163",
+        "parcel_id": "PARCEL-SEC01-0162",
+        "height_m": 4.46,
+        "floors": 1,
+        "area_sqm": 34.56,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868788,
+              17.3849434
+            ],
+            [
+              78.4868788,
+              17.3848859
+            ],
+            [
+              78.486828,
+              17.3848859
+            ],
+            [
+              78.486828,
+              17.3849434
+            ],
+            [
+              78.4868788,
+              17.3849434
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0164",
+        "parcel_id": "PARCEL-SEC01-0163",
+        "height_m": 8.18,
+        "floors": 3,
+        "area_sqm": 35.38,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869598,
+              17.3849452
+            ],
+            [
+              78.4869598,
+              17.3848904
+            ],
+            [
+              78.4869052,
+              17.3848904
+            ],
+            [
+              78.4869052,
+              17.3849452
+            ],
+            [
+              78.4869598,
+              17.3849452
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0165",
+        "parcel_id": "PARCEL-SEC01-0164",
+        "height_m": 5.06,
+        "floors": 2,
+        "area_sqm": 37.62,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868007,
+              17.3848572
+            ],
+            [
+              78.4868007,
+              17.3847979
+            ],
+            [
+              78.4867471,
+              17.3847979
+            ],
+            [
+              78.4867471,
+              17.3848572
+            ],
+            [
+              78.4868007,
+              17.3848572
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0166",
+        "parcel_id": "PARCEL-SEC01-0165",
+        "height_m": 6.23,
+        "floors": 2,
+        "area_sqm": 32.76,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486876,
+              17.3848545
+            ],
+            [
+              78.486876,
+              17.3847979
+            ],
+            [
+              78.4868271,
+              17.3847979
+            ],
+            [
+              78.4868271,
+              17.3848545
+            ],
+            [
+              78.486876,
+              17.3848545
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0167",
+        "parcel_id": "PARCEL-SEC01-0166",
+        "height_m": 7.34,
+        "floors": 2,
+        "area_sqm": 35.38,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869598,
+              17.3848536
+            ],
+            [
+              78.4869598,
+              17.3847988
+            ],
+            [
+              78.4869052,
+              17.3847988
+            ],
+            [
+              78.4869052,
+              17.3848536
+            ],
+            [
+              78.4869598,
+              17.3848536
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0168",
+        "parcel_id": "PARCEL-SEC01-0167",
+        "height_m": 15.86,
+        "floors": 5,
+        "area_sqm": 34.02,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870737,
+              17.3849434
+            ],
+            [
+              78.4870737,
+              17.3848868
+            ],
+            [
+              78.4870229,
+              17.3848868
+            ],
+            [
+              78.4870229,
+              17.3849434
+            ],
+            [
+              78.4870737,
+              17.3849434
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0169",
+        "parcel_id": "PARCEL-SEC01-0168",
+        "height_m": 10.46,
+        "floors": 3,
+        "area_sqm": 35.28,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871509,
+              17.3849452
+            ],
+            [
+              78.4871509,
+              17.3848886
+            ],
+            [
+              78.4870982,
+              17.3848886
+            ],
+            [
+              78.4870982,
+              17.3849452
+            ],
+            [
+              78.4871509,
+              17.3849452
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0170",
+        "parcel_id": "PARCEL-SEC01-0169",
+        "height_m": 11.6,
+        "floors": 4,
+        "area_sqm": 37.4,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870756,
+              17.3848572
+            ],
+            [
+              78.4870756,
+              17.3847961
+            ],
+            [
+              78.4870238,
+              17.3847961
+            ],
+            [
+              78.4870238,
+              17.3848572
+            ],
+            [
+              78.4870756,
+              17.3848572
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0171",
+        "parcel_id": "PARCEL-SEC01-0170",
+        "height_m": 16.51,
+        "floors": 5,
+        "area_sqm": 31.27,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871499,
+              17.3848536
+            ],
+            [
+              78.4871499,
+              17.3848006
+            ],
+            [
+              78.4871001,
+              17.3848006
+            ],
+            [
+              78.4871001,
+              17.3848536
+            ],
+            [
+              78.4871499,
+              17.3848536
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0172",
+        "parcel_id": "PARCEL-SEC01-0171",
+        "height_m": 8.55,
+        "floors": 3,
+        "area_sqm": 35.2,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867979,
+              17.3847197
+            ],
+            [
+              78.4867979,
+              17.3846622
+            ],
+            [
+              78.4867461,
+              17.3846622
+            ],
+            [
+              78.4867461,
+              17.3847197
+            ],
+            [
+              78.4867979,
+              17.3847197
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0173",
+        "parcel_id": "PARCEL-SEC01-0172",
+        "height_m": 4.43,
+        "floors": 1,
+        "area_sqm": 38.35,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868798,
+              17.3847224
+            ],
+            [
+              78.4868798,
+              17.384664
+            ],
+            [
+              78.4868243,
+              17.384664
+            ],
+            [
+              78.4868243,
+              17.3847224
+            ],
+            [
+              78.4868798,
+              17.3847224
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0174",
+        "parcel_id": "PARCEL-SEC01-0173",
+        "height_m": 5.53,
+        "floors": 2,
+        "area_sqm": 38.08,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869579,
+              17.3847233
+            ],
+            [
+              78.4869579,
+              17.3846622
+            ],
+            [
+              78.4869052,
+              17.3846622
+            ],
+            [
+              78.4869052,
+              17.3847233
+            ],
+            [
+              78.4869579,
+              17.3847233
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0175",
+        "parcel_id": "PARCEL-SEC01-0174",
+        "height_m": 6.49,
+        "floors": 2,
+        "area_sqm": 33.92,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867998,
+              17.3846308
+            ],
+            [
+              78.4867998,
+              17.3845733
+            ],
+            [
+              78.4867499,
+              17.3845733
+            ],
+            [
+              78.4867499,
+              17.3846308
+            ],
+            [
+              78.4867998,
+              17.3846308
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0176",
+        "parcel_id": "PARCEL-SEC01-0175",
+        "height_m": 7.93,
+        "floors": 2,
+        "area_sqm": 38.76,
+        "structure_type": "Masonry Structure"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868807,
+              17.3846317
+            ],
+            [
+              78.4868807,
+              17.3845706
+            ],
+            [
+              78.4868271,
+              17.3845706
+            ],
+            [
+              78.4868271,
+              17.3846317
+            ],
+            [
+              78.4868807,
+              17.3846317
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0177",
+        "parcel_id": "PARCEL-SEC01-0176",
+        "height_m": 9.26,
+        "floors": 3,
+        "area_sqm": 32.76,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.486956,
+              17.3846326
+            ],
+            [
+              78.486956,
+              17.384576
+            ],
+            [
+              78.4869071,
+              17.384576
+            ],
+            [
+              78.4869071,
+              17.3846326
+            ],
+            [
+              78.486956,
+              17.3846326
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0178",
+        "parcel_id": "PARCEL-SEC01-0177",
+        "height_m": 10.94,
+        "floors": 3,
+        "area_sqm": 40.12,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870756,
+              17.3847242
+            ],
+            [
+              78.4870756,
+              17.3846631
+            ],
+            [
+              78.48702,
+              17.3846631
+            ],
+            [
+              78.48702,
+              17.3847242
+            ],
+            [
+              78.4870756,
+              17.3847242
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0179",
+        "parcel_id": "PARCEL-SEC01-0178",
+        "height_m": 12.55,
+        "floors": 4,
+        "area_sqm": 35.1,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4871471,
+              17.3847224
+            ],
+            [
+              78.4871471,
+              17.384664
+            ],
+            [
+              78.4870963,
+              17.384664
+            ],
+            [
+              78.4870963,
+              17.3847224
+            ],
+            [
+              78.4871471,
+              17.3847224
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0180",
+        "parcel_id": "PARCEL-SEC01-0179",
+        "height_m": 8.99,
+        "floors": 3,
+        "area_sqm": 35.51,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870746,
+              17.3846344
+            ],
+            [
+              78.4870746,
+              17.3845742
+            ],
+            [
+              78.4870248,
+              17.3845742
+            ],
+            [
+              78.4870248,
+              17.3846344
+            ],
+            [
+              78.4870746,
+              17.3846344
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "building_id": "BLD-SEC01-0181",
+        "parcel_id": "PARCEL-SEC01-0180",
+        "height_m": 13.31,
+        "floors": 4,
+        "area_sqm": 33.39,
+        "structure_type": "Reinforced Concrete Frame"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.487149,
+              17.3846299
+            ],
+            [
+              78.487149,
+              17.3845733
+            ],
+            [
+              78.4870991,
+              17.3845733
+            ],
+            [
+              78.4870991,
+              17.3846299
+            ],
+            [
+              78.487149,
+              17.3846299
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

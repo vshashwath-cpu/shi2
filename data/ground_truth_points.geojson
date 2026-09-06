@@ -1,0 +1,131 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "CORS-BM-01 (Municipal Benchmark)",
+        "order": "Class A Primary",
+        "elevation_m": 507.088,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4862651,
+          17.385415
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "CORS-BM-02 (Central Intersection)",
+        "order": "Class A Primary",
+        "elevation_m": 501.846,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4867,
+          17.385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "CORS-BM-03 (East Corridor Node)",
+        "order": "Class B Cadastral",
+        "elevation_m": 502.674,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4871311,
+          17.385
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "CORS-BM-04 (South Sector Monument)",
+        "order": "Class B Cadastral",
+        "elevation_m": 502.428,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4867,
+          17.3845886
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "GT-NODE-P105 (Boundary Stone)",
+        "order": "Boundary Marker",
+        "elevation_m": 500.797,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4864251,
+          17.3852309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "GT-NODE-P118 (Boundary Stone)",
+        "order": "Boundary Marker",
+        "elevation_m": 501.497,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4867358,
+          17.3852309
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "station_id": "GT-NODE-P132 (Road Boundary Peg)",
+        "order": "Boundary Marker",
+        "elevation_m": 502.083,
+        "horizontal_precision_cm": 1.2,
+        "vertical_precision_cm": 2.4,
+        "receiver_type": "Dual-frequency Multi-GNSS RTK (CORS Network)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          78.4866652,
+          17.3847817
+        ]
+      }
+    }
+  ]
+}

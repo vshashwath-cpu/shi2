@@ -1,0 +1,3525 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0101",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 74.0,
+        "area_sqft": 796.5,
+        "perimeter_m": 34.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0102",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.385442
+            ],
+            [
+              78.4862369,
+              17.3853589
+            ],
+            [
+              78.4863122,
+              17.3853589
+            ],
+            [
+              78.4863122,
+              17.385442
+            ],
+            [
+              78.4862369,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0102",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 74.0,
+        "area_sqft": 796.5,
+        "perimeter_m": 34.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0103",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 99.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.385442
+            ],
+            [
+              78.4863122,
+              17.385442
+            ],
+            [
+              78.4863122,
+              17.3853589
+            ],
+            [
+              78.4863875,
+              17.3853589
+            ],
+            [
+              78.4863875,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0103",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 74.0,
+        "area_sqft": 796.5,
+        "perimeter_m": 34.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0104",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3853589
+            ],
+            [
+              78.4862369,
+              17.3852758
+            ],
+            [
+              78.4863122,
+              17.3852758
+            ],
+            [
+              78.4863122,
+              17.3853589
+            ],
+            [
+              78.4862369,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0104",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 74.0,
+        "area_sqft": 796.5,
+        "perimeter_m": 34.5,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3853589
+            ],
+            [
+              78.4863122,
+              17.3853589
+            ],
+            [
+              78.4863122,
+              17.3852758
+            ],
+            [
+              78.4863875,
+              17.3852758
+            ],
+            [
+              78.4863875,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0105",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 78.63,
+        "area_sqft": 846.3,
+        "perimeter_m": 35.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0106",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3853589
+            ],
+            [
+              78.4865051,
+              17.385442
+            ],
+            [
+              78.4864251,
+              17.385442
+            ],
+            [
+              78.4864251,
+              17.3853589
+            ],
+            [
+              78.4865051,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0106",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 78.63,
+        "area_sqft": 846.3,
+        "perimeter_m": 35.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0107",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.385442
+            ],
+            [
+              78.4865051,
+              17.3853589
+            ],
+            [
+              78.4865852,
+              17.3853589
+            ],
+            [
+              78.4865852,
+              17.385442
+            ],
+            [
+              78.4865051,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0107",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 78.63,
+        "area_sqft": 846.3,
+        "perimeter_m": 35.5,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.385442
+            ],
+            [
+              78.4865852,
+              17.3853589
+            ],
+            [
+              78.4866652,
+              17.3853589
+            ],
+            [
+              78.4866652,
+              17.385442
+            ],
+            [
+              78.4865852,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0108",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 78.63,
+        "area_sqft": 846.3,
+        "perimeter_m": 35.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0109",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3852758
+            ],
+            [
+              78.4865051,
+              17.3853589
+            ],
+            [
+              78.4864251,
+              17.3853589
+            ],
+            [
+              78.4864251,
+              17.3852758
+            ],
+            [
+              78.4865051,
+              17.3852758
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0109",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 78.63,
+        "area_sqft": 846.3,
+        "perimeter_m": 35.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0110",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3853589
+            ],
+            [
+              78.4865051,
+              17.3852758
+            ],
+            [
+              78.4865852,
+              17.3852758
+            ],
+            [
+              78.4865852,
+              17.3853589
+            ],
+            [
+              78.4865051,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0110",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 78.63,
+        "area_sqft": 846.3,
+        "perimeter_m": 35.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0111",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3853589
+            ],
+            [
+              78.4865852,
+              17.3852758
+            ],
+            [
+              78.4866652,
+              17.3852758
+            ],
+            [
+              78.4866652,
+              17.3853589
+            ],
+            [
+              78.4865852,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0111",
+        "ulpin": "IND10738518258",
+        "land_use": "Commercial",
+        "area_sqm": 86.0,
+        "area_sqft": 925.7,
+        "perimeter_m": 37.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0112",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3852309
+            ],
+            [
+              78.4862369,
+              17.3851343
+            ],
+            [
+              78.4863122,
+              17.3851343
+            ],
+            [
+              78.4863122,
+              17.3852309
+            ],
+            [
+              78.4862369,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0112",
+        "ulpin": "IND10738518258",
+        "land_use": "Commercial",
+        "area_sqm": 86.0,
+        "area_sqft": 925.7,
+        "perimeter_m": 37.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0113",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3852309
+            ],
+            [
+              78.4863122,
+              17.3852309
+            ],
+            [
+              78.4863122,
+              17.3851343
+            ],
+            [
+              78.4863875,
+              17.3851343
+            ],
+            [
+              78.4863875,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0113",
+        "ulpin": "IND10738508258",
+        "land_use": "Commercial",
+        "area_sqm": 86.0,
+        "area_sqft": 925.7,
+        "perimeter_m": 37.5,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3851343
+            ],
+            [
+              78.4862369,
+              17.3850377
+            ],
+            [
+              78.4863122,
+              17.3850377
+            ],
+            [
+              78.4863122,
+              17.3851343
+            ],
+            [
+              78.4862369,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0114",
+        "ulpin": "IND10738508258",
+        "land_use": "Commercial",
+        "area_sqm": 86.0,
+        "area_sqft": 925.7,
+        "perimeter_m": 37.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0115",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3851343
+            ],
+            [
+              78.4863122,
+              17.3851343
+            ],
+            [
+              78.4863122,
+              17.3850377
+            ],
+            [
+              78.4863875,
+              17.3850377
+            ],
+            [
+              78.4863875,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0115",
+        "ulpin": "IND10738518258",
+        "land_use": "Residential",
+        "area_sqm": 91.38,
+        "area_sqft": 983.6,
+        "perimeter_m": 38.5,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3851343
+            ],
+            [
+              78.4865051,
+              17.3852309
+            ],
+            [
+              78.4864251,
+              17.3852309
+            ],
+            [
+              78.4864251,
+              17.3851343
+            ],
+            [
+              78.4865051,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0116",
+        "ulpin": "IND10738518258",
+        "land_use": "Residential",
+        "area_sqm": 91.38,
+        "area_sqft": 983.6,
+        "perimeter_m": 38.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0117",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3852309
+            ],
+            [
+              78.4865051,
+              17.3851343
+            ],
+            [
+              78.4865852,
+              17.3851343
+            ],
+            [
+              78.4865852,
+              17.3852309
+            ],
+            [
+              78.4865051,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0117",
+        "ulpin": "IND10738518258",
+        "land_use": "Residential",
+        "area_sqm": 91.38,
+        "area_sqft": 983.6,
+        "perimeter_m": 38.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0118",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3852309
+            ],
+            [
+              78.4865852,
+              17.3851343
+            ],
+            [
+              78.4866652,
+              17.3851343
+            ],
+            [
+              78.4866652,
+              17.3852309
+            ],
+            [
+              78.4865852,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0118",
+        "ulpin": "IND10738508258",
+        "land_use": "Residential",
+        "area_sqm": 91.38,
+        "area_sqft": 983.6,
+        "perimeter_m": 38.5,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3850377
+            ],
+            [
+              78.4865051,
+              17.3851343
+            ],
+            [
+              78.4864251,
+              17.3851343
+            ],
+            [
+              78.4864251,
+              17.3850377
+            ],
+            [
+              78.4865051,
+              17.3850377
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0119",
+        "ulpin": "IND10738508258",
+        "land_use": "Residential",
+        "area_sqm": 91.38,
+        "area_sqft": 983.6,
+        "perimeter_m": 38.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0120",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3851343
+            ],
+            [
+              78.4865051,
+              17.3850377
+            ],
+            [
+              78.4865852,
+              17.3850377
+            ],
+            [
+              78.4865852,
+              17.3851343
+            ],
+            [
+              78.4865051,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0120",
+        "ulpin": "IND10738508258",
+        "land_use": "Residential",
+        "area_sqm": 91.38,
+        "area_sqft": 983.6,
+        "perimeter_m": 38.5,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0121",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3851343
+            ],
+            [
+              78.4865852,
+              17.3850377
+            ],
+            [
+              78.4866652,
+              17.3850377
+            ],
+            [
+              78.4866652,
+              17.3851343
+            ],
+            [
+              78.4865852,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0121",
+        "ulpin": "IND10738540258",
+        "land_use": "Commercial",
+        "area_sqm": 77.08,
+        "area_sqft": 829.7,
+        "perimeter_m": 35.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0122",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.385442
+            ],
+            [
+              78.4867358,
+              17.3853589
+            ],
+            [
+              78.4868142,
+              17.3853589
+            ],
+            [
+              78.4868142,
+              17.385442
+            ],
+            [
+              78.4867358,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0122",
+        "ulpin": "IND10738540258",
+        "land_use": "Commercial",
+        "area_sqm": 77.08,
+        "area_sqft": 829.7,
+        "perimeter_m": 35.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0123",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.385442
+            ],
+            [
+              78.4868142,
+              17.3853589
+            ],
+            [
+              78.4868927,
+              17.3853589
+            ],
+            [
+              78.4868927,
+              17.385442
+            ],
+            [
+              78.4868142,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0123",
+        "ulpin": "IND10738540258",
+        "land_use": "Commercial",
+        "area_sqm": 77.08,
+        "area_sqft": 829.7,
+        "perimeter_m": 35.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0124",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.385442
+            ],
+            [
+              78.4868927,
+              17.385442
+            ],
+            [
+              78.4868927,
+              17.3853589
+            ],
+            [
+              78.4869711,
+              17.3853589
+            ],
+            [
+              78.4869711,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0124",
+        "ulpin": "IND10738531258",
+        "land_use": "Commercial",
+        "area_sqm": 77.08,
+        "area_sqft": 829.7,
+        "perimeter_m": 35.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0125",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3853589
+            ],
+            [
+              78.4867358,
+              17.3852758
+            ],
+            [
+              78.4868142,
+              17.3852758
+            ],
+            [
+              78.4868142,
+              17.3853589
+            ],
+            [
+              78.4867358,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0125",
+        "ulpin": "IND10738531258",
+        "land_use": "Commercial",
+        "area_sqm": 77.08,
+        "area_sqft": 829.7,
+        "perimeter_m": 35.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0126",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3853589
+            ],
+            [
+              78.4868142,
+              17.3852758
+            ],
+            [
+              78.4868927,
+              17.3852758
+            ],
+            [
+              78.4868927,
+              17.3853589
+            ],
+            [
+              78.4868142,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0126",
+        "ulpin": "IND10738531258",
+        "land_use": "Commercial",
+        "area_sqm": 77.08,
+        "area_sqft": 829.7,
+        "perimeter_m": 35.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0127",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 99.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3853589
+            ],
+            [
+              78.4868927,
+              17.3853589
+            ],
+            [
+              78.4868927,
+              17.3852758
+            ],
+            [
+              78.4869711,
+              17.3852758
+            ],
+            [
+              78.4869711,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0127",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 75.85,
+        "area_sqft": 816.4,
+        "perimeter_m": 34.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0128",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3853589
+            ],
+            [
+              78.4870859,
+              17.385442
+            ],
+            [
+              78.4870088,
+              17.385442
+            ],
+            [
+              78.4870088,
+              17.3853589
+            ],
+            [
+              78.4870859,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0128",
+        "ulpin": "IND10738540258",
+        "land_use": "Residential",
+        "area_sqm": 75.85,
+        "area_sqft": 816.4,
+        "perimeter_m": 34.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0129",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.385442
+            ],
+            [
+              78.4870859,
+              17.3853589
+            ],
+            [
+              78.4871631,
+              17.3853589
+            ],
+            [
+              78.4871631,
+              17.385442
+            ],
+            [
+              78.4870859,
+              17.385442
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0129",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 75.85,
+        "area_sqft": 816.4,
+        "perimeter_m": 34.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0130",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3852758
+            ],
+            [
+              78.4870859,
+              17.3853589
+            ],
+            [
+              78.4870088,
+              17.3853589
+            ],
+            [
+              78.4870088,
+              17.3852758
+            ],
+            [
+              78.4870859,
+              17.3852758
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0130",
+        "ulpin": "IND10738531258",
+        "land_use": "Residential",
+        "area_sqm": 75.85,
+        "area_sqft": 816.4,
+        "perimeter_m": 34.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0131",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3853589
+            ],
+            [
+              78.4870859,
+              17.3852758
+            ],
+            [
+              78.4871631,
+              17.3852758
+            ],
+            [
+              78.4871631,
+              17.3853589
+            ],
+            [
+              78.4870859,
+              17.3853589
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0131",
+        "ulpin": "IND10738518258",
+        "land_use": "Mixed Use",
+        "area_sqm": 89.58,
+        "area_sqft": 964.3,
+        "perimeter_m": 38.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0132",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3852309
+            ],
+            [
+              78.4867358,
+              17.3851343
+            ],
+            [
+              78.4868142,
+              17.3851343
+            ],
+            [
+              78.4868142,
+              17.3852309
+            ],
+            [
+              78.4867358,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0132",
+        "ulpin": "IND10738518258",
+        "land_use": "Mixed Use",
+        "area_sqm": 89.58,
+        "area_sqft": 964.3,
+        "perimeter_m": 38.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0133",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3852309
+            ],
+            [
+              78.4868142,
+              17.3851343
+            ],
+            [
+              78.4868927,
+              17.3851343
+            ],
+            [
+              78.4868927,
+              17.3852309
+            ],
+            [
+              78.4868142,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0133",
+        "ulpin": "IND10738518258",
+        "land_use": "Mixed Use",
+        "area_sqm": 89.58,
+        "area_sqft": 964.3,
+        "perimeter_m": 38.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0134",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3852309
+            ],
+            [
+              78.4868927,
+              17.3852309
+            ],
+            [
+              78.4868927,
+              17.3851343
+            ],
+            [
+              78.4869711,
+              17.3851343
+            ],
+            [
+              78.4869711,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0134",
+        "ulpin": "IND10738508258",
+        "land_use": "Mixed Use",
+        "area_sqm": 89.58,
+        "area_sqft": 964.3,
+        "perimeter_m": 38.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0135",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.4
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3851343
+            ],
+            [
+              78.4867358,
+              17.3850377
+            ],
+            [
+              78.4868142,
+              17.3850377
+            ],
+            [
+              78.4868142,
+              17.3851343
+            ],
+            [
+              78.4867358,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0135",
+        "ulpin": "IND10738508258",
+        "land_use": "Mixed Use",
+        "area_sqm": 89.58,
+        "area_sqft": 964.3,
+        "perimeter_m": 38.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0136",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3851343
+            ],
+            [
+              78.4868142,
+              17.3850377
+            ],
+            [
+              78.4868927,
+              17.3850377
+            ],
+            [
+              78.4868927,
+              17.3851343
+            ],
+            [
+              78.4868142,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0136",
+        "ulpin": "IND10738508258",
+        "land_use": "Mixed Use",
+        "area_sqm": 89.58,
+        "area_sqft": 964.3,
+        "perimeter_m": 38.17,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0137",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3851343
+            ],
+            [
+              78.4868927,
+              17.3851343
+            ],
+            [
+              78.4868927,
+              17.3850377
+            ],
+            [
+              78.4869711,
+              17.3850377
+            ],
+            [
+              78.4869711,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0137",
+        "ulpin": "IND10738518258",
+        "land_use": "Residential",
+        "area_sqm": 88.15,
+        "area_sqft": 948.8,
+        "perimeter_m": 37.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0138",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3851343
+            ],
+            [
+              78.4870859,
+              17.3852309
+            ],
+            [
+              78.4870088,
+              17.3852309
+            ],
+            [
+              78.4870088,
+              17.3851343
+            ],
+            [
+              78.4870859,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0138",
+        "ulpin": "IND10738518258",
+        "land_use": "Residential",
+        "area_sqm": 88.15,
+        "area_sqft": 948.8,
+        "perimeter_m": 37.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0139",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3852309
+            ],
+            [
+              78.4870859,
+              17.3851343
+            ],
+            [
+              78.4871631,
+              17.3851343
+            ],
+            [
+              78.4871631,
+              17.3852309
+            ],
+            [
+              78.4870859,
+              17.3852309
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0139",
+        "ulpin": "IND10738508258",
+        "land_use": "Residential",
+        "area_sqm": 88.15,
+        "area_sqft": 948.8,
+        "perimeter_m": 37.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0140",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 99.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3850377
+            ],
+            [
+              78.4870859,
+              17.3851343
+            ],
+            [
+              78.4870088,
+              17.3851343
+            ],
+            [
+              78.4870088,
+              17.3850377
+            ],
+            [
+              78.4870859,
+              17.3850377
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0140",
+        "ulpin": "IND10738508258",
+        "land_use": "Residential",
+        "area_sqm": 88.15,
+        "area_sqft": 948.8,
+        "perimeter_m": 37.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0141",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3851343
+            ],
+            [
+              78.4870859,
+              17.3850377
+            ],
+            [
+              78.4871631,
+              17.3850377
+            ],
+            [
+              78.4871631,
+              17.3851343
+            ],
+            [
+              78.4870859,
+              17.3851343
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0141",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 80.0,
+        "area_sqft": 861.1,
+        "perimeter_m": 36.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0142",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3849614
+            ],
+            [
+              78.4862369,
+              17.3848715
+            ],
+            [
+              78.4863122,
+              17.3848715
+            ],
+            [
+              78.4863122,
+              17.3849614
+            ],
+            [
+              78.4862369,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0142",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 80.0,
+        "area_sqft": 861.1,
+        "perimeter_m": 36.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0143",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3849614
+            ],
+            [
+              78.4863122,
+              17.3849614
+            ],
+            [
+              78.4863122,
+              17.3848715
+            ],
+            [
+              78.4863875,
+              17.3848715
+            ],
+            [
+              78.4863875,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0143",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 80.0,
+        "area_sqft": 861.1,
+        "perimeter_m": 36.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0144",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3848715
+            ],
+            [
+              78.4862369,
+              17.3847817
+            ],
+            [
+              78.4863122,
+              17.3847817
+            ],
+            [
+              78.4863122,
+              17.3848715
+            ],
+            [
+              78.4862369,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0144",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 80.0,
+        "area_sqft": 861.1,
+        "perimeter_m": 36.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0145",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3848715
+            ],
+            [
+              78.4863122,
+              17.3848715
+            ],
+            [
+              78.4863122,
+              17.3847817
+            ],
+            [
+              78.4863875,
+              17.3847817
+            ],
+            [
+              78.4863875,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0145",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 85.0,
+        "area_sqft": 914.9,
+        "perimeter_m": 37.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0146",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 99.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3848715
+            ],
+            [
+              78.4865051,
+              17.3849614
+            ],
+            [
+              78.4864251,
+              17.3849614
+            ],
+            [
+              78.4864251,
+              17.3848715
+            ],
+            [
+              78.4865051,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0146",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 85.0,
+        "area_sqft": 914.9,
+        "perimeter_m": 37.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0147",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3849614
+            ],
+            [
+              78.4865051,
+              17.3848715
+            ],
+            [
+              78.4865852,
+              17.3848715
+            ],
+            [
+              78.4865852,
+              17.3849614
+            ],
+            [
+              78.4865051,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0147",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 85.0,
+        "area_sqft": 914.9,
+        "perimeter_m": 37.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0148",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3849614
+            ],
+            [
+              78.4865852,
+              17.3848715
+            ],
+            [
+              78.4866652,
+              17.3848715
+            ],
+            [
+              78.4866652,
+              17.3849614
+            ],
+            [
+              78.4865852,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0148",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 85.0,
+        "area_sqft": 914.9,
+        "perimeter_m": 37.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0149",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 99.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3847817
+            ],
+            [
+              78.4865051,
+              17.3848715
+            ],
+            [
+              78.4864251,
+              17.3848715
+            ],
+            [
+              78.4864251,
+              17.3847817
+            ],
+            [
+              78.4865051,
+              17.3847817
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0149",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 85.0,
+        "area_sqft": 914.9,
+        "perimeter_m": 37.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0150",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3848715
+            ],
+            [
+              78.4865051,
+              17.3847817
+            ],
+            [
+              78.4865852,
+              17.3847817
+            ],
+            [
+              78.4865852,
+              17.3848715
+            ],
+            [
+              78.4865051,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0150",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 85.0,
+        "area_sqft": 914.9,
+        "perimeter_m": 37.0,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0151",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3848715
+            ],
+            [
+              78.4865852,
+              17.3847817
+            ],
+            [
+              78.4866652,
+              17.3847817
+            ],
+            [
+              78.4866652,
+              17.3848715
+            ],
+            [
+              78.4865852,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0151",
+        "ulpin": "IND10738469258",
+        "land_use": "Vacant / Open",
+        "area_sqm": 79.6,
+        "area_sqft": 856.8,
+        "perimeter_m": 35.9,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3847368
+            ],
+            [
+              78.4862369,
+              17.3846474
+            ],
+            [
+              78.4863122,
+              17.3846474
+            ],
+            [
+              78.4863122,
+              17.3847368
+            ],
+            [
+              78.4862369,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0152",
+        "ulpin": "IND10738469258",
+        "land_use": "Vacant / Open",
+        "area_sqm": 79.6,
+        "area_sqft": 856.8,
+        "perimeter_m": 35.9,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3847368
+            ],
+            [
+              78.4863122,
+              17.3847368
+            ],
+            [
+              78.4863122,
+              17.3846474
+            ],
+            [
+              78.4863875,
+              17.3846474
+            ],
+            [
+              78.4863875,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0153",
+        "ulpin": "IND10738460258",
+        "land_use": "Vacant / Open",
+        "area_sqm": 79.6,
+        "area_sqft": 856.8,
+        "perimeter_m": 35.9,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4862369,
+              17.3846474
+            ],
+            [
+              78.4862369,
+              17.384558
+            ],
+            [
+              78.4863122,
+              17.384558
+            ],
+            [
+              78.4863122,
+              17.3846474
+            ],
+            [
+              78.4862369,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0154",
+        "ulpin": "IND10738460258",
+        "land_use": "Vacant / Open",
+        "area_sqm": 79.6,
+        "area_sqft": 856.8,
+        "perimeter_m": 35.9,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4863875,
+              17.3846474
+            ],
+            [
+              78.4863122,
+              17.3846474
+            ],
+            [
+              78.4863122,
+              17.384558
+            ],
+            [
+              78.4863875,
+              17.384558
+            ],
+            [
+              78.4863875,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0155",
+        "ulpin": "IND10738469258",
+        "land_use": "Residential",
+        "area_sqm": 84.58,
+        "area_sqft": 910.4,
+        "perimeter_m": 36.9,
+        "has_building": false,
+        "building_id": null,
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.2
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3846474
+            ],
+            [
+              78.4865051,
+              17.3847368
+            ],
+            [
+              78.4864251,
+              17.3847368
+            ],
+            [
+              78.4864251,
+              17.3846474
+            ],
+            [
+              78.4865051,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0156",
+        "ulpin": "IND10738469258",
+        "land_use": "Residential",
+        "area_sqm": 84.58,
+        "area_sqft": 910.4,
+        "perimeter_m": 36.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0157",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3847368
+            ],
+            [
+              78.4865051,
+              17.3846474
+            ],
+            [
+              78.4865852,
+              17.3846474
+            ],
+            [
+              78.4865852,
+              17.3847368
+            ],
+            [
+              78.4865051,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0157",
+        "ulpin": "IND10738469258",
+        "land_use": "Residential",
+        "area_sqm": 84.58,
+        "area_sqft": 910.4,
+        "perimeter_m": 36.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0158",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3847368
+            ],
+            [
+              78.4865852,
+              17.3846474
+            ],
+            [
+              78.4866652,
+              17.3846474
+            ],
+            [
+              78.4866652,
+              17.3847368
+            ],
+            [
+              78.4865852,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0158",
+        "ulpin": "IND10738460258",
+        "land_use": "Residential",
+        "area_sqm": 84.58,
+        "area_sqft": 910.4,
+        "perimeter_m": 36.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0159",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.3
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.384558
+            ],
+            [
+              78.4865051,
+              17.3846474
+            ],
+            [
+              78.4864251,
+              17.3846474
+            ],
+            [
+              78.4864251,
+              17.384558
+            ],
+            [
+              78.4865051,
+              17.384558
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0159",
+        "ulpin": "IND10738460258",
+        "land_use": "Residential",
+        "area_sqm": 84.58,
+        "area_sqft": 910.4,
+        "perimeter_m": 36.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0160",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865051,
+              17.3846474
+            ],
+            [
+              78.4865051,
+              17.384558
+            ],
+            [
+              78.4865852,
+              17.384558
+            ],
+            [
+              78.4865852,
+              17.3846474
+            ],
+            [
+              78.4865051,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0160",
+        "ulpin": "IND10738460258",
+        "land_use": "Residential",
+        "area_sqm": 84.58,
+        "area_sqft": 910.4,
+        "perimeter_m": 36.9,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0161",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4865852,
+              17.3846474
+            ],
+            [
+              78.4865852,
+              17.384558
+            ],
+            [
+              78.4866652,
+              17.384558
+            ],
+            [
+              78.4866652,
+              17.3846474
+            ],
+            [
+              78.4865852,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0161",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 83.33,
+        "area_sqft": 897.0,
+        "perimeter_m": 36.67,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0162",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3849614
+            ],
+            [
+              78.4867358,
+              17.3848715
+            ],
+            [
+              78.4868142,
+              17.3848715
+            ],
+            [
+              78.4868142,
+              17.3849614
+            ],
+            [
+              78.4867358,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0162",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 83.33,
+        "area_sqft": 897.0,
+        "perimeter_m": 36.67,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0163",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3849614
+            ],
+            [
+              78.4868142,
+              17.3848715
+            ],
+            [
+              78.4868927,
+              17.3848715
+            ],
+            [
+              78.4868927,
+              17.3849614
+            ],
+            [
+              78.4868142,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0163",
+        "ulpin": "IND10738491258",
+        "land_use": "Residential",
+        "area_sqm": 83.33,
+        "area_sqft": 897.0,
+        "perimeter_m": 36.67,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0164",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3849614
+            ],
+            [
+              78.4868927,
+              17.3849614
+            ],
+            [
+              78.4868927,
+              17.3848715
+            ],
+            [
+              78.4869711,
+              17.3848715
+            ],
+            [
+              78.4869711,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0164",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 83.33,
+        "area_sqft": 897.0,
+        "perimeter_m": 36.67,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0165",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3848715
+            ],
+            [
+              78.4867358,
+              17.3847817
+            ],
+            [
+              78.4868142,
+              17.3847817
+            ],
+            [
+              78.4868142,
+              17.3848715
+            ],
+            [
+              78.4867358,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0165",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 83.33,
+        "area_sqft": 897.0,
+        "perimeter_m": 36.67,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0166",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3848715
+            ],
+            [
+              78.4868142,
+              17.3847817
+            ],
+            [
+              78.4868927,
+              17.3847817
+            ],
+            [
+              78.4868927,
+              17.3848715
+            ],
+            [
+              78.4868142,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0166",
+        "ulpin": "IND10738482258",
+        "land_use": "Residential",
+        "area_sqm": 83.33,
+        "area_sqft": 897.0,
+        "perimeter_m": 36.67,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0167",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3848715
+            ],
+            [
+              78.4868927,
+              17.3848715
+            ],
+            [
+              78.4868927,
+              17.3847817
+            ],
+            [
+              78.4869711,
+              17.3847817
+            ],
+            [
+              78.4869711,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0167",
+        "ulpin": "IND10738491258",
+        "land_use": "Commercial",
+        "area_sqm": 82.0,
+        "area_sqft": 882.6,
+        "perimeter_m": 36.4,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0168",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.6
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3848715
+            ],
+            [
+              78.4870859,
+              17.3849614
+            ],
+            [
+              78.4870088,
+              17.3849614
+            ],
+            [
+              78.4870088,
+              17.3848715
+            ],
+            [
+              78.4870859,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0168",
+        "ulpin": "IND10738491258",
+        "land_use": "Commercial",
+        "area_sqm": 82.0,
+        "area_sqft": 882.6,
+        "perimeter_m": 36.4,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0169",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3849614
+            ],
+            [
+              78.4870859,
+              17.3848715
+            ],
+            [
+              78.4871631,
+              17.3848715
+            ],
+            [
+              78.4871631,
+              17.3849614
+            ],
+            [
+              78.4870859,
+              17.3849614
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0169",
+        "ulpin": "IND10738482258",
+        "land_use": "Commercial",
+        "area_sqm": 82.0,
+        "area_sqft": 882.6,
+        "perimeter_m": 36.4,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0170",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.5
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3847817
+            ],
+            [
+              78.4870859,
+              17.3848715
+            ],
+            [
+              78.4870088,
+              17.3848715
+            ],
+            [
+              78.4870088,
+              17.3847817
+            ],
+            [
+              78.4870859,
+              17.3847817
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0170",
+        "ulpin": "IND10738482258",
+        "land_use": "Commercial",
+        "area_sqm": 82.0,
+        "area_sqft": 882.6,
+        "perimeter_m": 36.4,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0171",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3848715
+            ],
+            [
+              78.4870859,
+              17.3847817
+            ],
+            [
+              78.4871631,
+              17.3847817
+            ],
+            [
+              78.4871631,
+              17.3848715
+            ],
+            [
+              78.4870859,
+              17.3848715
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0171",
+        "ulpin": "IND10738469258",
+        "land_use": "Residential",
+        "area_sqm": 82.92,
+        "area_sqft": 892.5,
+        "perimeter_m": 36.57,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0172",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3847368
+            ],
+            [
+              78.4867358,
+              17.3846474
+            ],
+            [
+              78.4868142,
+              17.3846474
+            ],
+            [
+              78.4868142,
+              17.3847368
+            ],
+            [
+              78.4867358,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0172",
+        "ulpin": "IND10738469258",
+        "land_use": "Residential",
+        "area_sqm": 82.92,
+        "area_sqft": 892.5,
+        "perimeter_m": 36.57,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0173",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 95.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3847368
+            ],
+            [
+              78.4868142,
+              17.3846474
+            ],
+            [
+              78.4868927,
+              17.3846474
+            ],
+            [
+              78.4868927,
+              17.3847368
+            ],
+            [
+              78.4868142,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0173",
+        "ulpin": "IND10738469258",
+        "land_use": "Residential",
+        "area_sqm": 82.92,
+        "area_sqft": 892.5,
+        "perimeter_m": 36.57,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0174",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3847368
+            ],
+            [
+              78.4868927,
+              17.3847368
+            ],
+            [
+              78.4868927,
+              17.3846474
+            ],
+            [
+              78.4869711,
+              17.3846474
+            ],
+            [
+              78.4869711,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0174",
+        "ulpin": "IND10738460258",
+        "land_use": "Residential",
+        "area_sqm": 82.92,
+        "area_sqft": 892.5,
+        "perimeter_m": 36.57,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0175",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4867358,
+              17.3846474
+            ],
+            [
+              78.4867358,
+              17.384558
+            ],
+            [
+              78.4868142,
+              17.384558
+            ],
+            [
+              78.4868142,
+              17.3846474
+            ],
+            [
+              78.4867358,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0175",
+        "ulpin": "IND10738460258",
+        "land_use": "Residential",
+        "area_sqm": 82.92,
+        "area_sqft": 892.5,
+        "perimeter_m": 36.57,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0176",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4868142,
+              17.3846474
+            ],
+            [
+              78.4868142,
+              17.384558
+            ],
+            [
+              78.4868927,
+              17.384558
+            ],
+            [
+              78.4868927,
+              17.3846474
+            ],
+            [
+              78.4868142,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0176",
+        "ulpin": "IND10738460258",
+        "land_use": "Residential",
+        "area_sqm": 82.92,
+        "area_sqft": 892.5,
+        "perimeter_m": 36.57,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0177",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 94.9
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4869711,
+              17.3846474
+            ],
+            [
+              78.4868927,
+              17.3846474
+            ],
+            [
+              78.4868927,
+              17.384558
+            ],
+            [
+              78.4869711,
+              17.384558
+            ],
+            [
+              78.4869711,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0177",
+        "ulpin": "IND10738469258",
+        "land_use": "Institutional",
+        "area_sqm": 81.59,
+        "area_sqft": 878.2,
+        "perimeter_m": 36.3,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0178",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.1
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3846474
+            ],
+            [
+              78.4870859,
+              17.3847368
+            ],
+            [
+              78.4870088,
+              17.3847368
+            ],
+            [
+              78.4870088,
+              17.3846474
+            ],
+            [
+              78.4870859,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0178",
+        "ulpin": "IND10738469258",
+        "land_use": "Institutional",
+        "area_sqm": 81.59,
+        "area_sqft": 878.2,
+        "perimeter_m": 36.3,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0179",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 98.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3847368
+            ],
+            [
+              78.4870859,
+              17.3846474
+            ],
+            [
+              78.4871631,
+              17.3846474
+            ],
+            [
+              78.4871631,
+              17.3847368
+            ],
+            [
+              78.4870859,
+              17.3847368
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0179",
+        "ulpin": "IND10738460258",
+        "land_use": "Institutional",
+        "area_sqm": 81.59,
+        "area_sqft": 878.2,
+        "perimeter_m": 36.3,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0180",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 96.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.384558
+            ],
+            [
+              78.4870859,
+              17.3846474
+            ],
+            [
+              78.4870088,
+              17.3846474
+            ],
+            [
+              78.4870088,
+              17.384558
+            ],
+            [
+              78.4870859,
+              17.384558
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "parcel_id": "PARCEL-SEC01-0180",
+        "ulpin": "IND10738460258",
+        "land_use": "Institutional",
+        "area_sqm": 81.59,
+        "area_sqft": 878.2,
+        "perimeter_m": 36.3,
+        "has_building": true,
+        "building_id": "BLD-SEC01-0181",
+        "survey_status": "AI Preliminary Delineated",
+        "verification_score": 98.4,
+        "delineation_method": "GeoAI Multimodal Edge & Road Corridor Partitioning",
+        "extraction_confidence": 97.7
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              78.4870859,
+              17.3846474
+            ],
+            [
+              78.4870859,
+              17.384558
+            ],
+            [
+              78.4871631,
+              17.384558
+            ],
+            [
+              78.4871631,
+              17.3846474
+            ],
+            [
+              78.4870859,
+              17.3846474
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
