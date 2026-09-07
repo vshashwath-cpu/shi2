@@ -154,6 +154,13 @@ class TestCadastralPipeline(unittest.TestCase):
         self.assertEqual(status_data["status"], "ONLINE")
         self.assertEqual(status_data["version"], "2.4.0-GeoAI")
 
+        # /api/ping
+        res_ping = self.client.get("/api/ping")
+        self.assertEqual(res_ping.status_code, 200)
+        self.assertEqual(res_ping.get_json()["status"], "pong")
+        res_head = self.client.head("/api/ping")
+        self.assertEqual(res_head.status_code, 200)
+
         # /api/layers/parcels
         res = self.client.get("/api/layers/parcels")
         self.assertEqual(res.status_code, 200)

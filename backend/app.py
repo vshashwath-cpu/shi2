@@ -83,6 +83,11 @@ def get_status():
         "metadata": meta
     })
 
+@app.route("/api/ping", methods=["GET", "HEAD"])
+def ping():
+    """Ultra-lightweight keep-alive heartbeat endpoint for uptime monitors."""
+    return jsonify({"status": "pong", "online": True}), 200
+
 @app.route("/api/extract", methods=["POST"])
 def run_extraction():
     """Runs the GeoAI segmentation and feature extraction pipeline."""

@@ -1,0 +1,17 @@
+name: Keep Render Server Active
+
+on:
+  schedule:
+    # Run every 12 minutes to prevent Render free instance from spinning down (sleeps after 15 min)
+    - cron: '*/12 * * * *'
+  workflow_dispatch: # Allows manual trigger from the GitHub Actions tab
+
+jobs:
+  heartbeat:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Heartbeat Ping to Render Web Service
+        run: |
+          TARGET_URL="${{ secrets.RENDER_APP_URL || 'https://geoai-cadastre-workstation.onrender.com' }}"
+          echo "Sending keep-alive ping to: $TARGET_URL/api/ping"
+          curl -s -f -I -m 30 "$TARGET_URL/api/ping" || curl -s -m 30 "$TARGET_URL" || echo "Heartbeat ping completed."
