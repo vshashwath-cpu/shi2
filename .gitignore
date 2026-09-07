@@ -41,6 +41,8 @@ venv.bak/
 *.swp
 *.swo
 
-# Temporary generated test certificates
+# Temporary generated test certificates & uploads
 data/unit_test_cert.pdf
 data/test_cert.pdf
+data/uploads/*
+!data/uploads/.gitkeep

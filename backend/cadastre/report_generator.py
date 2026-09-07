@@ -197,6 +197,165 @@ class CadastralReportGenerator:
         print(f"[Report Generator] Generated certificate at '{output_path}'.")
         return output_path
 
+    @staticmethod
+    def generate_drone_area_report(drone_data, output_path="data/drone_area_intelligence_report.pdf"):
+        """
+        Generates an authenticated Drone Aerial Survey & Area Intelligence Report in PDF format.
+        Includes land-cover breakdown, building footprints, parcel delineation, and ULPIN registry.
+        """
+        os.makedirs(os.path.dirname(output_path), exist_ok=True)
+        doc = SimpleDocTemplate(
+            output_path,
+            pagesize=letter,
+            rightMargin=36,
+            leftMargin=36,
+            topMargin=36,
+            bottomMargin=36
+        )
+
+        styles = getSampleStyleSheet()
+
+        title_style = ParagraphStyle(
+            "DroneTitle", parent=styles["Normal"],
+            fontName="Helvetica-Bold", fontSize=15, leading=19,
+            textColor=colors.HexColor("#1A365D"), alignment=1
+        )
+        subtitle_style = ParagraphStyle(
+            "DroneSubtitle", parent=styles["Normal"],
+            fontName="Helvetica", fontSize=10, leading=13,
+            textColor=colors.HexColor("#4A5568"), alignment=1
+        )
+        section_hdr = ParagraphStyle(
+            "DroneSectionHdr", parent=styles["Normal"],
+            fontName="Helvetica-Bold", fontSize=11, leading=14,
+            textColor=colors.HexColor("#2B6CB0"), spaceBefore=8, spaceAfter=4
+        )
+        body_style = ParagraphStyle(
+            "DroneBody", parent=styles["Normal"],
+            fontName="Helvetica", fontSize=9, leading=12,
+            textColor=colors.HexColor("#2D3748")
+        )
+
+        story = []
+
+        # 1. Header
+        story.append(Paragraph("MUNICIPAL URBAN GEOSPATIAL & DRONE SURVEY DIVISION", title_style))
+        story.append(Spacer(1, 2))
+        story.append(Paragraph("AI-BASED AUTOMATED DRONE IMAGERY AREA INTELLIGENCE REPORT", subtitle_style))
+        story.append(Spacer(1, 2))
+        story.append(Paragraph("Cadastral Parcel Delineation & Land Cover Feasibility Assessment", ParagraphStyle(
+            "SubDrone", parent=subtitle_style, fontName="Helvetica-Bold", fontSize=10, textColor=colors.HexColor("#C53030")
+        )))
+        story.append(Spacer(1, 6))
+        story.append(HRFlowable(width="100%", thickness=2, color=colors.HexColor("#1A365D"), spaceAfter=8))
+
+        # 2. Metadata Table
+        meta = drone_data.get("metadata", {})
+        metrics = drone_data.get("metrics", {})
+        lc = drone_data.get("land_cover", {})
+        counts = drone_data.get("counts", {})
+
+        meta_rows = [
+            [
+                Paragraph(f"<b>Mission Upload ID:</b> {drone_data.get('upload_id', 'N/A')}", body_style),
+                Paragraph(f"<b>Survey Date:</b> {datetime.now().strftime('%d-%b-%Y %H:%M')}", body_style)
+            ],
+            [
+                Paragraph(f"<b>Sensor GSD:</b> {meta.get('gsd_meters', 0.10)} m/px (Sub-decimeter)", body_style),
+                Paragraph(f"<b>Image Dimensions:</b> {meta.get('image_width_px', 0)} x {meta.get('image_height_px', 0)} px ({meta.get('megapixels', 0)} MP)", body_style)
+            ],
+            [
+                Paragraph(f"<b>Center Coordinates:</b> {metrics.get('center_coords', ['-'])[0]}° E, {metrics.get('center_coords', ['-'])[1]}° N", body_style),
+                Paragraph(f"<b>Georeference CRS:</b> {meta.get('crs', 'WGS84 / UTM')}", body_style)
+            ]
+        ]
+        meta_table = Table(meta_rows, colWidths=[270, 270])
+        meta_table.setStyle(TableStyle([
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F7FAFC")),
+            ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#CBD5E0")),
+            ("PADDING", (0, 0), (-1, -1), 5),
+        ]))
+        story.append(meta_table)
+        story.append(Spacer(1, 10))
+
+        # 3. Overall Area Metrics Table
+        story.append(Paragraph("1. SPATIAL EXTENT & PHYSICAL METRICS", section_hdr))
+        extent_rows = [
+            ["Metric Parameter", "Metric (SI)", "Imperial / Agrarian", "Description"],
+            ["Total Surveyed Area", f"{metrics.get('total_area_sqm', 0):,} m²", f"{metrics.get('total_area_sqft', 0):,} sq.ft", "Full raster extent"],
+            ["Agrarian Acreage", f"{metrics.get('total_area_hectares', 0)} ha", f"{metrics.get('total_area_acres', 0)} Acres", "Standard land registry units"],
+            ["Perimeter Boundary", f"{metrics.get('perimeter_m', 0):,} m", f"{round(metrics.get('perimeter_m', 0)*3.28084, 1):,} ft", "Total outer perimeter enclosure"],
+            ["Ground Coverage Ratio", f"{metrics.get('estimated_ground_coverage_pct', 0)}%", "-", "Built-up footprint density"],
+        ]
+        extent_table = Table(extent_rows, colWidths=[140, 110, 130, 160])
+        extent_table.setStyle(TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#CBD5E0")),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#2B6CB0")),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("PADDING", (0, 0), (-1, -1), 4),
+        ]))
+        story.append(extent_table)
+        story.append(Spacer(1, 10))
+
+        # 4. Land Cover Breakdown Table
+        story.append(Paragraph("2. SPECTRAL LAND-COVER CLASSIFICATION (Excess Green & Radiometry)", section_hdr))
+        lc_rows = [
+            ["Land Cover Category", "Coverage (%)", "Absolute Area (m²)", "Spectral Signature Detection Method"],
+            ["Built-up / Structures", f"{lc.get('built_up_pct', 0)}%", f"{lc.get('built_up_sqm', 0):,} m²", "High edge gradient + orthogonal footprint"],
+            ["Tree Canopy & Green Cover", f"{lc.get('vegetation_pct', 0)}%", f"{lc.get('vegetation_sqm', 0):,} m²", "ExG (Excess Green) Index > 15.0"],
+            ["Roads & Transportation", f"{lc.get('road_pct', 0)}%", f"{lc.get('road_sqm', 0):,} m²", "Asphalt radiometry & corridor connectivity"],
+            ["Open Land / Vacant Ground", f"{lc.get('open_ground_pct', 0)}%", f"{lc.get('open_ground_sqm', 0):,} m²", "Bare soil & unpaved terrain residual"],
+        ]
+        lc_table = Table(lc_rows, colWidths=[150, 90, 120, 180])
+        lc_table.setStyle(TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#CBD5E0")),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#2B6CB0")),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("PADDING", (0, 0), (-1, -1), 4),
+        ]))
+        story.append(lc_table)
+        story.append(Spacer(1, 10))
+
+        # 5. Extracted Features Summary
+        story.append(Paragraph("3. GEOAI CADASTRAL FEATURE INVENTORY", section_hdr))
+        feat_rows = [
+            ["Feature Layer", "Extracted Count", "Legal Status", "Compliance & Deliverables"],
+            ["Delineated Cadastral Parcels", f"{counts.get('parcels', 0)} Parcels", "Automated Delineation", "14-Digit ULPIN Bhu-Aadhaar Assigned"],
+            ["Orthogonalized Buildings", f"{counts.get('buildings', 0)} Structures", "Digitized Footprints", "Storey & Plinth Area Extracted"],
+            ["Access Corridors / Roads", f"{counts.get('roads', 0)} Corridors", "Right-of-Way Buffer", "Setback & Width Quantified"],
+        ]
+        feat_table = Table(feat_rows, colWidths=[160, 100, 130, 150])
+        feat_table.setStyle(TableStyle([
+            ("GRID", (0, 0), (-1, -1), 0.5, colors.HexColor("#CBD5E0")),
+            ("BACKGROUND", (0, 0), (-1, 0), colors.HexColor("#2B6CB0")),
+            ("TEXTCOLOR", (0, 0), (-1, 0), colors.white),
+            ("FONTNAME", (0, 0), (-1, 0), "Helvetica-Bold"),
+            ("PADDING", (0, 0), (-1, -1), 4),
+        ]))
+        story.append(feat_table)
+        story.append(Spacer(1, 12))
+
+        # 6. Certification Sign-Off
+        sign_rows = [
+            [
+                Paragraph("<b>Drone Photogrammetry Lead</b><br/><br/><br/><i>Digitally Signed (Key: 0x9B42FC)</i><br/>UAV Remote Sensing Unit", body_style),
+                Paragraph("<b>Municipal Settlement Commissioner</b><br/><br/><br/><i>Authenticated & Ready for Cadastre Incorporation</i><br/>Bureau of Urban Land Records", body_style)
+            ]
+        ]
+        sign_table = Table(sign_rows, colWidths=[270, 270])
+        sign_table.setStyle(TableStyle([
+            ("BOX", (0, 0), (-1, -1), 1, colors.HexColor("#CBD5E0")),
+            ("PADDING", (0, 0), (-1, -1), 8),
+            ("BACKGROUND", (0, 0), (-1, -1), colors.HexColor("#F7FAFC"))
+        ]))
+        story.append(sign_table)
+
+        doc.build(story)
+        print(f"[Report Generator] Generated drone area report at '{output_path}'.")
+        return output_path
+
 if __name__ == "__main__":
     sample_props = {
         "parcel_id": "PARCEL-SEC01-0105",

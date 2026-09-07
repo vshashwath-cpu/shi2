@@ -36,7 +36,10 @@ const STATE = {
   boxStartLatLng: null,
   polyPoints: [],
   polyMarkers: [],
-  tempDrawLayer: null
+  tempDrawLayer: null,
+  droneOverlay: null,
+  droneFeaturesLayer: null,
+  activeDroneData: null
 };
 
 // Map bounds corresponding to the 1024x1024 10cm GSD synthetic dataset
@@ -865,6 +868,9 @@ function setupUIEventListeners() {
 
   // Area of Interest (Map Selection) Setup
   setupAOITools();
+
+  // Drone Ingestion & Area Intelligence Setup
+  setupDroneUploadHandlers();
 }
 
 function getActiveFilterPill() {
@@ -1313,4 +1319,312 @@ function showToast(title, msg, progressPct = 50) {
 
 function hideToast() {
   document.getElementById('progress-toast').style.display = 'none';
+}
+
+/* =========================================================================
+   12. DRONE IMAGE UPLOAD & AREA INTELLIGENCE
+   ========================================================================= */
+function setupDroneUploadHandlers() {
+  const modal = document.getElementById('modal-drone-upload');
+  const openModal = () => {
+    modal.style.display = 'flex';
+  };
+  const closeModal = () => {
+    modal.style.display = 'none';
+    document.getElementById('drone-upload-spinner').style.display = 'none';
+  };
+
+  // Triggers to open modal
+  const btnHeader = document.getElementById('btn-upload-drone');
+  if (btnHeader) btnHeader.addEventListener('click', openModal);
+
+  const btnFloat = document.getElementById('float-btn-upload-drone');
+  if (btnFloat) btnFloat.addEventListener('click', openModal);
+
+  const btnSidebar = document.getElementById('btn-sidebar-open-upload');
+  if (btnSidebar) btnSidebar.addEventListener('click', openModal);
+
+  // Close modal buttons
+  const btnClose = document.getElementById('btn-close-drone-modal');
+  if (btnClose) btnClose.addEventListener('click', closeModal);
+
+  const btnCancel = document.getElementById('btn-cancel-drone-modal');
+  if (btnCancel) btnCancel.addEventListener('click', closeModal);
+
+  // Dropzone & File selection
+  const dropzone = document.getElementById('drone-dropzone');
+  const fileInput = document.getElementById('drone-file-input');
+  const fileNameDisplay = document.getElementById('dropzone-file-name');
+  let selectedFile = null;
+  let selectedSampleName = null;
+
+  if (dropzone && fileInput) {
+    dropzone.addEventListener('click', () => fileInput.click());
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        selectedFile = e.target.files[0];
+        selectedSampleName = null;
+        document.querySelectorAll('.btn-sample').forEach(b => b.classList.remove('active'));
+        fileNameDisplay.style.display = 'inline-flex';
+        fileNameDisplay.querySelector('span').innerText = `${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2)} MB)`;
+      }
+    });
+
+    ['dragenter', 'dragover'].forEach(name => {
+      dropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('drag-over');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(name => {
+      dropzone.addEventListener(name, (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('drag-over');
+      });
+    });
+
+    dropzone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        selectedFile = e.dataTransfer.files[0];
+        selectedSampleName = null;
+        document.querySelectorAll('.btn-sample').forEach(b => b.classList.remove('active'));
+        fileNameDisplay.style.display = 'inline-flex';
+        fileNameDisplay.querySelector('span').innerText = `${selectedFile.name} (${(selectedFile.size / 1024 / 1024).toFixed(2)} MB)`;
+      }
+    });
+  }
+
+  // Sample Buttons
+  document.querySelectorAll('.btn-sample').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.btn-sample').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSampleName = btn.getAttribute('data-sample');
+      selectedFile = null;
+      if (fileInput) fileInput.value = '';
+      fileNameDisplay.style.display = 'inline-flex';
+      fileNameDisplay.querySelector('span').innerText = `Selected Preset: ${btn.querySelector('strong').innerText}`;
+    });
+  });
+
+  // Submit Upload & Analysis
+  const submitBtn = document.getElementById('btn-submit-drone-upload');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', async () => {
+      if (!selectedFile && !selectedSampleName) {
+        alert('Please select or drop a drone image file, or choose one of the pre-packaged sample missions.');
+        return;
+      }
+
+      const spinner = document.getElementById('drone-upload-spinner');
+      spinner.style.display = 'flex';
+      submitBtn.disabled = true;
+
+      const formData = new FormData();
+      if (selectedFile) {
+        formData.append('file', selectedFile);
+      } else if (selectedSampleName) {
+        formData.append('sample_name', selectedSampleName);
+      }
+
+      const lat = parseFloat(document.getElementById('drone-input-lat').value) || 17.3850;
+      const lon = parseFloat(document.getElementById('drone-input-lon').value) || 78.4867;
+      const gsd = parseFloat(document.getElementById('drone-input-gsd').value) || 0.10;
+
+      formData.append('center_lat', lat);
+      formData.append('center_lon', lon);
+      formData.append('gsd_meters', gsd);
+
+      try {
+        const res = await fetch('/api/drone/upload', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+        submitBtn.disabled = false;
+
+        if (data.success) {
+          closeModal();
+          handleDroneAnalysisResult(data);
+        } else {
+          spinner.style.display = 'none';
+          alert(data.error || 'Failed to analyze drone image.');
+        }
+      } catch (err) {
+        submitBtn.disabled = false;
+        spinner.style.display = 'none';
+        console.error('Drone upload error:', err);
+        alert('Network or server error while uploading drone imagery.');
+      }
+    });
+  }
+
+  // Drone Action buttons
+  const btnZoom = document.getElementById('btn-drone-zoom');
+  if (btnZoom) {
+    btnZoom.addEventListener('click', () => {
+      if (STATE.droneOverlay) {
+        STATE.map.fitBounds(STATE.droneOverlay.getBounds(), { maxZoom: 21, padding: [40, 40] });
+      }
+    });
+  }
+
+  const btnReport = document.getElementById('btn-drone-download-report');
+  if (btnReport) {
+    btnReport.addEventListener('click', () => {
+      if (STATE.activeDroneData && STATE.activeDroneData.upload_id) {
+        window.location.href = `/api/drone/report/${STATE.activeDroneData.upload_id}`;
+      }
+    });
+  }
+
+  const btnCommit = document.getElementById('btn-drone-commit');
+  if (btnCommit) {
+    btnCommit.addEventListener('click', async () => {
+      if (!STATE.activeDroneData || !STATE.activeDroneData.upload_id) return;
+      btnCommit.disabled = true;
+      btnCommit.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Incorporating...`;
+
+      try {
+        const res = await fetch('/api/drone/commit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ upload_id: STATE.activeDroneData.upload_id })
+        });
+        const resp = await res.json();
+        btnCommit.disabled = false;
+        btnCommit.innerHTML = `<i class="fa-solid fa-check"></i> Incorporated in Cadastre`;
+
+        if (resp.success) {
+          showToast("Cadastre Updated", resp.message, 100);
+          await loadDataset();
+          setTimeout(hideToast, 2500);
+        }
+      } catch (e) {
+        btnCommit.disabled = false;
+        btnCommit.innerHTML = `<i class="fa-solid fa-plus"></i> Incorporate into Active Cadastre`;
+        console.error('Commit error:', e);
+      }
+    });
+  }
+}
+
+function handleDroneAnalysisResult(data) {
+  STATE.activeDroneData = data;
+
+  // 1. Switch left sidebar to Drone Intel tab
+  const droneTabBtn = document.getElementById('tab-btn-drone');
+  if (droneTabBtn) droneTabBtn.click();
+
+  // 2. Add or update L.imageOverlay on Leaflet map
+  const b = data.metadata.bounds;
+  const overlayBounds = [
+    [b.min_lat, b.min_lon],
+    [b.max_lat, b.max_lon]
+  ];
+
+  if (STATE.droneOverlay) {
+    STATE.map.removeLayer(STATE.droneOverlay);
+  }
+  STATE.droneOverlay = L.imageOverlay(data.image_url, overlayBounds, {
+    opacity: 0.95,
+    interactive: true
+  }).addTo(STATE.map);
+
+  // 3. Render extracted features on map
+  if (STATE.droneFeaturesLayer) {
+    STATE.map.removeLayer(STATE.droneFeaturesLayer);
+  }
+  STATE.droneFeaturesLayer = L.featureGroup().addTo(STATE.map);
+
+  // Parcels
+  if (data.features && data.features.parcels) {
+    const pLayer = L.geoJSON(data.features.parcels, {
+      style: {
+        color: '#38bdf8',
+        weight: 2,
+        opacity: 0.95,
+        fillColor: '#38bdf8',
+        fillOpacity: 0.15
+      },
+      onEachFeature: (f, l) => {
+        l.bindPopup(`
+          <div class="cadastre-popup">
+            <h4 style="color:#38bdf8;"><i class="fa-solid fa-draw-polygon"></i> ${f.properties.parcel_id}</h4>
+            <table>
+              <tr><td class="k">ULPIN:</td><td><b>${f.properties.ulpin}</b></td></tr>
+              <tr><td class="k">Area:</td><td>${f.properties.area_sqm} m²</td></tr>
+              <tr><td class="k">Land Use:</td><td>${f.properties.land_use}</td></tr>
+              <tr><td class="k">Status:</td><td>${f.properties.survey_status}</td></tr>
+            </table>
+          </div>
+        `);
+      }
+    });
+    STATE.droneFeaturesLayer.addLayer(pLayer);
+  }
+
+  // Buildings
+  if (data.features && data.features.buildings) {
+    const bLayer = L.geoJSON(data.features.buildings, {
+      style: {
+        color: '#b91c1c',
+        weight: 1.5,
+        fillColor: '#ef4444',
+        fillOpacity: 0.65
+      },
+      onEachFeature: (f, l) => {
+        l.bindPopup(`
+          <div class="cadastre-popup">
+            <h4 style="color:#ef4444;"><i class="fa-solid fa-building"></i> ${f.properties.building_id}</h4>
+            <table>
+              <tr><td class="k">Height:</td><td><b>${f.properties.height_m} m</b> (${f.properties.floors} fl)</td></tr>
+              <tr><td class="k">Area:</td><td>${f.properties.area_sqm} m²</td></tr>
+              <tr><td class="k">Structure:</td><td>${f.properties.structure_type}</td></tr>
+            </table>
+          </div>
+        `);
+      }
+    });
+    STATE.droneFeaturesLayer.addLayer(bLayer);
+  }
+
+  // 4. Fit map smoothly to the newly uploaded drone image area
+  STATE.map.flyToBounds(overlayBounds, { duration: 1.2, maxZoom: 20 });
+
+  // 5. Populate Drone Area Intelligence Card
+  document.getElementById('drone-intel-card').style.display = 'block';
+  document.getElementById('drone-intel-id').innerText = `UAV-${data.upload_id.toUpperCase()}`;
+  document.getElementById('drone-intel-gsd').innerText = `${data.metadata.gsd_meters} m/px (${data.metadata.image_width_px}x${data.metadata.image_height_px})`;
+  document.getElementById('drone-intel-area-sqm').innerText = `${data.metrics.total_area_sqm.toLocaleString()} m² (${data.metrics.total_area_sqft.toLocaleString()} sq.ft)`;
+  document.getElementById('drone-intel-acres').innerText = `${data.metrics.total_area_acres} Acres (${data.metrics.total_area_hectares} ha)`;
+  document.getElementById('drone-intel-perimeter').innerText = `${data.metrics.perimeter_m.toLocaleString()} m`;
+  document.getElementById('drone-intel-coords').innerText = `${data.metrics.center_coords[0]}° E, ${data.metrics.center_coords[1]}° N`;
+
+  // Land cover bars
+  const lc = data.land_cover;
+  document.getElementById('drone-lc-built').innerText = `${lc.built_up_pct}% (${lc.built_up_sqm.toLocaleString()} m²)`;
+  document.getElementById('bar-built').style.width = `${lc.built_up_pct}%`;
+
+  document.getElementById('drone-lc-veg').innerText = `${lc.vegetation_pct}% (${lc.vegetation_sqm.toLocaleString()} m²)`;
+  document.getElementById('bar-veg').style.width = `${lc.vegetation_pct}%`;
+
+  document.getElementById('drone-lc-road').innerText = `${lc.road_pct}% (${lc.road_sqm.toLocaleString()} m²)`;
+  document.getElementById('bar-road').style.width = `${lc.road_pct}%`;
+
+  document.getElementById('drone-lc-open').innerText = `${lc.open_ground_pct}% (${lc.open_ground_sqm.toLocaleString()} m²)`;
+  document.getElementById('bar-open').style.width = `${lc.open_ground_pct}%`;
+
+  // Feature counts
+  document.getElementById('drone-intel-blds').innerText = `${data.counts.buildings} Structures`;
+  document.getElementById('drone-intel-parcels').innerText = `${data.counts.parcels} Parcels (with ULPINs)`;
+  document.getElementById('drone-intel-roads').innerText = `${data.counts.roads} Corridors`;
+
+  showToast("Area Intelligence Extracted", `Identified ${data.counts.buildings} structures and ${data.counts.parcels} parcels in ${data.metrics.total_area_acres} acres.`, 100);
+  setTimeout(hideToast, 2500);
 }

@@ -238,5 +238,72 @@ class TestCadastralPipeline(unittest.TestCase):
         parcel_manager.save_data()
         self.client.post("/api/topology/validate")
 
+    def test_09_drone_image_upload_and_analysis(self):
+        """Test drone imagery upload, spectral land cover, feature extraction, and PDF reporting."""
+        import io
+        from PIL import Image
+
+        # 1. Test /api/drone/samples
+        samples_res = self.client.get("/api/drone/samples")
+        self.assertEqual(samples_res.status_code, 200)
+        samples_data = samples_res.get_json()
+        self.assertTrue(samples_data["success"])
+        self.assertGreaterEqual(len(samples_data["samples"]), 1)
+
+        # 2. Test analyze sample drone image
+        res = self.client.post("/api/drone/upload", json={
+            "sample_name": "sample_drone_sector02.jpg",
+            "center_lat": 17.3850,
+            "center_lon": 78.4867,
+            "gsd_meters": 0.10
+        })
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertTrue(data["success"])
+        upload_id = data["upload_id"]
+        self.assertIn("metadata", data)
+        self.assertIn("metrics", data)
+        self.assertIn("land_cover", data)
+        self.assertGreater(data["metrics"]["total_area_sqm"], 5000)
+        self.assertGreater(data["metrics"]["total_area_acres"], 1.0)
+        self.assertIn("built_up_pct", data["land_cover"])
+        self.assertIn("vegetation_pct", data["land_cover"])
+        self.assertGreater(data["counts"]["buildings"], 0)
+        self.assertGreater(data["counts"]["parcels"], 0)
+
+        # 3. Test image streaming
+        img_res = self.client.get(f"/api/drone/image/{upload_id}")
+        self.assertEqual(img_res.status_code, 200)
+        self.assertEqual(img_res.mimetype, "image/png")
+
+        # 4. Test feature GeoJSON
+        feat_res = self.client.get(f"/api/drone/features/{upload_id}")
+        self.assertEqual(feat_res.status_code, 200)
+        feat_data = feat_res.get_json()
+        self.assertIn("parcels", feat_data)
+        self.assertIn("buildings", feat_data)
+
+        # 5. Test PDF report generation
+        pdf_res = self.client.get(f"/api/drone/report/{upload_id}")
+        self.assertEqual(pdf_res.status_code, 200)
+        self.assertEqual(pdf_res.mimetype, "application/pdf")
+
+        # 6. Test multipart file upload with synthetic image
+        synth_img = Image.new("RGB", (200, 200), color=(60, 140, 60))
+        img_bytes = io.BytesIO()
+        synth_img.save(img_bytes, format="PNG")
+        img_bytes.seek(0)
+
+        upload_res = self.client.post("/api/drone/upload", data={
+            "file": (img_bytes, "test_flight.png"),
+            "center_lat": "17.3850",
+            "center_lon": "78.4867",
+            "gsd_meters": "0.10"
+        }, content_type="multipart/form-data")
+        self.assertEqual(upload_res.status_code, 200)
+        upload_data = upload_res.get_json()
+        self.assertTrue(upload_data["success"])
+        self.assertGreater(upload_data["metrics"]["total_area_sqm"], 0)
+
 if __name__ == "__main__":
     unittest.main()

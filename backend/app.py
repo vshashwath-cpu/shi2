@@ -13,6 +13,7 @@ from flask import Flask, jsonify, request, send_file, send_from_directory, Respo
 from backend.dataset_generator import generate_urban_dataset, pixel_to_geo, GSD
 from backend.geoai.segmentation_engine import GeoAISegmentationEngine
 from backend.geoai.topology_engine import CadastralTopologyEngine
+from backend.geoai.drone_analyzer import DroneImageAnalyzer
 from backend.cadastre.parcel_manager import CadastralParcelManager
 from backend.cadastre.exporter import CadastralExporter
 from backend.cadastre.report_generator import CadastralReportGenerator
@@ -30,6 +31,13 @@ if not os.path.exists(os.path.join(DATA_DIR, "dataset_metadata.json")):
 parcel_manager = CadastralParcelManager(os.path.join(DATA_DIR, "ground_truth_parcels.geojson"))
 segmentation_engine = GeoAISegmentationEngine(DATA_DIR)
 topology_engine = CadastralTopologyEngine(snap_tolerance_m=0.15, min_sliver_area_sqm=5.0)
+
+drone_uploads_dir = os.path.join(DATA_DIR, "uploads")
+drone_samples_dir = os.path.join(DATA_DIR, "samples")
+os.makedirs(drone_uploads_dir, exist_ok=True)
+os.makedirs(drone_samples_dir, exist_ok=True)
+drone_analyzer = DroneImageAnalyzer(drone_uploads_dir)
+active_drone_analyses = {}
 
 # Cached validation state
 latest_topology_report = None
@@ -521,6 +529,197 @@ def export_deliverable(format_type):
         )
     else:
         return jsonify({"error": f"Unsupported format: {format_type}. Choose geojson, dxf, csv, or pdf."}), 400
+
+# -------------------------------------------------------------------------
+# Drone Image Ingestion & Area Intelligence Endpoints
+# -------------------------------------------------------------------------
+
+@app.route("/api/drone/samples", methods=["GET"])
+def get_drone_samples():
+    """Lists pre-packaged sample drone missions for quick testing."""
+    samples = [
+        {
+            "id": "sector02",
+            "name": "Urban Sector 02 Drone Mission",
+            "description": "High-resolution orthomosaic over residential & mixed-use sector with tree canopies.",
+            "filename": "sample_drone_sector02.jpg",
+            "gsd_meters": 0.10,
+            "center_lat": 17.3850,
+            "center_lon": 78.4867
+        },
+        {
+            "id": "commercial",
+            "name": "Commercial & Logistics Park Mission",
+            "description": "Aerial survey over large warehouses, dual carriageway corridors, and logistics aprons.",
+            "filename": "sample_drone_commercial.jpg",
+            "gsd_meters": 0.10,
+            "center_lat": 17.3862,
+            "center_lon": 78.4880
+        }
+    ]
+    return jsonify({"success": True, "samples": samples})
+
+@app.route("/api/drone/upload", methods=["POST"])
+def upload_drone_image():
+    """
+    Accepts an uploaded drone image file or sample name and executes
+    spectral analysis, building/parcel extraction, and area intelligence metrics.
+    """
+    try:
+        sample_name = request.form.get("sample_name") or (request.json.get("sample_name") if request.is_json else None)
+        file_obj = request.files.get("file")
+
+        # Parse georeferencing options
+        def _get_val(key, default):
+            if request.form and key in request.form:
+                try: return float(request.form[key])
+                except: pass
+            if request.is_json and key in request.json:
+                try: return float(request.json[key])
+                except: pass
+            return default
+
+        center_lat = _get_val("center_lat", 17.3850)
+        center_lon = _get_val("center_lon", 78.4867)
+        gsd_meters = _get_val("gsd_meters", 0.10)
+
+        temp_image_path = None
+        if file_obj and file_obj.filename:
+            import uuid
+            ext = os.path.splitext(file_obj.filename)[1].lower() or ".jpg"
+            temp_name = f"upload_temp_{uuid.uuid4().hex[:8]}{ext}"
+            temp_image_path = os.path.join(drone_uploads_dir, temp_name)
+            file_obj.save(temp_image_path)
+        elif sample_name:
+            sample_path = os.path.join(drone_samples_dir, sample_name)
+            if not os.path.exists(sample_path):
+                from backend.geoai.generate_samples import create_sample_drone_images
+                create_sample_drone_images(drone_samples_dir)
+            if os.path.exists(sample_path):
+                temp_image_path = sample_path
+            else:
+                return jsonify({"error": f"Sample '{sample_name}' not found."}), 404
+        else:
+            return jsonify({"error": "No file uploaded and no sample selected."}), 400
+
+        # Execute analysis
+        analysis_result = drone_analyzer.analyze(
+            temp_image_path,
+            center_lat=center_lat,
+            center_lon=center_lon,
+            gsd_meters=gsd_meters
+        )
+
+        upload_id = analysis_result["upload_id"]
+        active_drone_analyses[upload_id] = analysis_result
+
+        return jsonify(analysis_result)
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route("/api/drone/image/<upload_id>", methods=["GET"])
+def get_drone_image(upload_id):
+    """Streams the processed drone image for Leaflet map overlay."""
+    img_path = os.path.join(drone_uploads_dir, f"drone_imagery_{upload_id}.png")
+    if os.path.exists(img_path):
+        return send_file(img_path, mimetype="image/png")
+    return jsonify({"error": "Drone image not found"}), 404
+
+@app.route("/api/drone/features/<upload_id>", methods=["GET"])
+def get_drone_features(upload_id):
+    """Returns vector features extracted from the uploaded drone image."""
+    data = active_drone_analyses.get(upload_id)
+    if not data:
+        meta_path = os.path.join(drone_uploads_dir, f"drone_meta_{upload_id}.json")
+        if os.path.exists(meta_path):
+            with open(meta_path, "r") as f:
+                data = json.load(f)
+                active_drone_analyses[upload_id] = data
+
+    if data and "features" in data:
+        return jsonify(data["features"])
+    return jsonify({"error": "Features not found"}), 404
+
+@app.route("/api/drone/commit", methods=["POST"])
+def commit_drone_features():
+    """
+    Merges newly extracted parcels and buildings from an uploaded drone image
+    into the active live cadastre dataset.
+    """
+    try:
+        req = request.get_json() or {}
+        upload_id = req.get("upload_id")
+        data = active_drone_analyses.get(upload_id)
+        if not data:
+            meta_path = os.path.join(drone_uploads_dir, f"drone_meta_{upload_id}.json")
+            if os.path.exists(meta_path):
+                with open(meta_path, "r") as f:
+                    data = json.load(f)
+
+        if not data:
+            return jsonify({"error": "Analysis data not found."}), 404
+
+        new_parcels = data.get("features", {}).get("parcels", {}).get("features", [])
+        new_buildings = data.get("features", {}).get("buildings", {}).get("features", [])
+
+        # Append parcels to parcel_manager
+        current_parcels = parcel_manager.parcels_fc.get("features", [])
+        existing_ids = {p["properties"].get("parcel_id") for p in current_parcels}
+        added_p = 0
+        for p in new_parcels:
+            if p["properties"].get("parcel_id") not in existing_ids:
+                current_parcels.append(p)
+                added_p += 1
+        parcel_manager.save_data()
+
+        # Append buildings to buildings.geojson
+        bld_path = os.path.join(DATA_DIR, "buildings.geojson")
+        bld_data = get_layer_data("buildings.geojson")
+        current_blds = bld_data.get("features", [])
+        existing_bld_ids = {b["properties"].get("building_id") for b in current_blds}
+        added_b = 0
+        for b in new_buildings:
+            if b["properties"].get("building_id") not in existing_bld_ids:
+                current_blds.append(b)
+                added_b += 1
+        with open(bld_path, "w") as f:
+            json.dump({"type": "FeatureCollection", "features": current_blds}, f, indent=2)
+
+        # Run topology validation
+        validate_topology()
+
+        return jsonify({
+            "success": True,
+            "message": f"Successfully committed {added_p} parcels and {added_b} buildings into active cadastre.",
+            "total_parcels": len(current_parcels),
+            "total_buildings": len(current_blds)
+        })
+    except Exception as e:
+        return jsonify({"success": False, "error": str(e)}), 500
+
+@app.route("/api/drone/report/<upload_id>", methods=["GET"])
+def get_drone_report(upload_id):
+    """Generates and downloads the authenticated Drone Area Intelligence PDF report."""
+    data = active_drone_analyses.get(upload_id)
+    if not data:
+        meta_path = os.path.join(drone_uploads_dir, f"drone_meta_{upload_id}.json")
+        if os.path.exists(meta_path):
+            with open(meta_path, "r") as f:
+                data = json.load(f)
+
+    if not data:
+        return jsonify({"error": "Analysis data not found."}), 404
+
+    pdf_path = os.path.join(drone_uploads_dir, f"drone_report_{upload_id}.pdf")
+    CadastralReportGenerator.generate_drone_area_report(data, pdf_path)
+    return send_file(
+        pdf_path,
+        mimetype="application/pdf",
+        as_attachment=True,
+        download_name=f"Drone_Area_Intelligence_{upload_id}.pdf"
+    )
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

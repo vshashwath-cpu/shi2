@@ -52,6 +52,9 @@
 
     <!-- Main Action Toolbar -->
     <div class="header-actions">
+      <button id="btn-upload-drone" class="btn btn-primary" style="background: linear-gradient(135deg, #0284c7, #0369a1); border-color: #38bdf8;">
+        <i class="fa-solid fa-cloud-arrow-up"></i> Add Drone Image
+      </button>
       <button id="btn-run-ai" class="btn btn-primary">
         <i class="fa-solid fa-wand-magic-sparkles"></i> Run AI Extraction
       </button>
@@ -95,6 +98,9 @@
       <div class="panel-tabs">
         <button class="panel-tab active" data-tab="layers-tab">
           <i class="fa-solid fa-layer-group"></i> Layers
+        </button>
+        <button class="panel-tab" data-tab="drone-tab" id="tab-btn-drone">
+          <i class="fa-solid fa-plane-up"></i> Drone Intel
         </button>
         <button class="panel-tab" data-tab="aoi-tab" id="tab-btn-aoi">
           <i class="fa-solid fa-crop-simple"></i> Select Area
@@ -200,6 +206,134 @@
             <span class="layer-name">Boundary Conflicts & Encroachments</span>
             <span class="badge-alert" id="count-errors">1</span>
           </label>
+        </div>
+      </div>
+
+      <!-- Tab: Drone Imagery & Area Intelligence -->
+      <div class="tab-content" id="drone-tab">
+        <div class="section-title">
+          <span>DRONE IMAGERY & AREA INTEL</span>
+          <span class="info-tag">GeoAI Vision</span>
+        </div>
+        <p class="panel-desc">
+          Add any custom drone flight or aerial orthomosaic. The GeoAI vision engine automatically extracts land-cover distribution, building footprints, road corridors, and cadastral parcels for that area.
+        </p>
+
+        <button id="btn-sidebar-open-upload" class="btn btn-primary w-full mt-2" style="background: linear-gradient(135deg, #0284c7, #0369a1); border-color: #38bdf8;">
+          <i class="fa-solid fa-cloud-arrow-up"></i> Upload / Select Drone Image
+        </button>
+
+        <!-- Drone Mission Intelligence Card -->
+        <div class="gt-card mt-3" id="drone-intel-card" style="display:none;">
+          <div class="gt-header">
+            <span class="gt-title"><i class="fa-solid fa-satellite-dish text-accent"></i> Area Intelligence Report</span>
+            <span class="gt-status-badge" id="drone-badge" style="background:rgba(56,189,248,0.2); color:var(--accent);">SURVEY ACTIVE</span>
+          </div>
+
+          <div class="gt-data-rows">
+            <div class="gt-row">
+              <span class="lbl">Mission ID:</span>
+              <span class="val highlight code-font" id="drone-intel-id">-</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Resolution / GSD:</span>
+              <span class="val" id="drone-intel-gsd">0.10 m/px</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Total Area (Metric):</span>
+              <span class="val highlight" id="drone-intel-area-sqm">0 m²</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Total Area (Agrarian):</span>
+              <span class="val" id="drone-intel-acres">0 Acres (0 ha)</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Outer Perimeter:</span>
+              <span class="val" id="drone-intel-perimeter">0 m</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Geographic Center:</span>
+              <span class="val code-font" id="drone-intel-coords">-</span>
+            </div>
+          </div>
+
+          <!-- Land Cover Breakdown with visual bars -->
+          <div class="section-title mt-3">
+            <span>SPECTRAL LAND-COVER ANALYSIS</span>
+          </div>
+          <div class="land-cover-bars mt-2">
+            <div class="lc-item">
+              <div class="lc-header">
+                <span><i class="fa-solid fa-building text-warning"></i> Built-up Structures</span>
+                <span id="drone-lc-built">0% (0 m²)</span>
+              </div>
+              <div class="lc-bar-track">
+                <div class="lc-bar-fill built" id="bar-built" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="lc-item mt-2">
+              <div class="lc-header">
+                <span><i class="fa-solid fa-tree text-success"></i> Tree Canopy & Green Cover</span>
+                <span id="drone-lc-veg">0% (0 m²)</span>
+              </div>
+              <div class="lc-bar-track">
+                <div class="lc-bar-fill veg" id="bar-veg" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="lc-item mt-2">
+              <div class="lc-header">
+                <span><i class="fa-solid fa-road" style="color:#38bdf8;"></i> Roads & Corridors</span>
+                <span id="drone-lc-road">0% (0 m²)</span>
+              </div>
+              <div class="lc-bar-track">
+                <div class="lc-bar-fill road" id="bar-road" style="width: 0%;"></div>
+              </div>
+            </div>
+
+            <div class="lc-item mt-2">
+              <div class="lc-header">
+                <span><i class="fa-solid fa-mountain-sun" style="color:#fbbf24;"></i> Open / Vacant Ground</span>
+                <span id="drone-lc-open">0% (0 m²)</span>
+              </div>
+              <div class="lc-bar-track">
+                <div class="lc-bar-fill open" id="bar-open" style="width: 0%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Extracted Features Summary -->
+          <div class="section-title mt-3">
+            <span>DELINEATED CADASTRAL FEATURES</span>
+          </div>
+          <div class="gt-data-rows mt-2">
+            <div class="gt-row">
+              <span class="lbl">Detected Buildings:</span>
+              <span class="val text-warning" id="drone-intel-blds">0 Structures</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Delineated Parcels:</span>
+              <span class="val text-accent" id="drone-intel-parcels">0 Parcels</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Road Corridors:</span>
+              <span class="val" id="drone-intel-roads">0 Corridors</span>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="action-buttons mt-3">
+            <button id="btn-drone-zoom" class="btn btn-outline w-full">
+              <i class="fa-solid fa-crosshairs"></i> Zoom to Drone Area
+            </button>
+            <button id="btn-drone-download-report" class="btn btn-primary w-full mt-2">
+              <i class="fa-solid fa-file-pdf"></i> Download Area Report (PDF)
+            </button>
+            <button id="btn-drone-commit" class="btn btn-success w-full mt-2">
+              <i class="fa-solid fa-plus"></i> Incorporate into Active Cadastre
+            </button>
+          </div>
         </div>
       </div>
 
@@ -423,6 +557,13 @@
           </button>
           <button id="float-clear-selection" class="pill-btn alert" title="Clear active selection" style="display:none;">
             <i class="fa-solid fa-xmark"></i> Clear
+          </button>
+        </div>
+
+        <!-- Drone Upload Quick Button -->
+        <div class="drone-upload-pill">
+          <button id="float-btn-upload-drone" class="pill-btn highlight" title="Upload custom drone imagery and extract area intelligence">
+            <i class="fa-solid fa-cloud-arrow-up"></i> Add Drone Image
           </button>
         </div>
 
@@ -682,6 +823,100 @@
         <button class="btn btn-outline" id="btn-cancel-modal">Cancel</button>
         <button class="btn btn-primary" id="btn-download-modal-cert">
           <i class="fa-solid fa-file-arrow-down"></i> Generate & Download PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for Drone Image Upload & Area Analysis -->
+  <div class="modal-backdrop" id="modal-drone-upload" style="display:none;">
+    <div class="modal-card modal-lg">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-cloud-arrow-up text-accent"></i> Add Drone Image & Analyze Area</h3>
+        <button class="modal-close" id="btn-close-drone-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Upload a high-resolution drone orthomosaic or aerial photo (JPG, PNG, TIFF). The GeoAI vision engine automatically georeferences the extent, calculates land-cover distribution, delineates building footprints, and partitions the area into cadastral parcels.</p>
+
+        <!-- Dropzone -->
+        <div class="drone-dropzone" id="drone-dropzone">
+          <input type="file" id="drone-file-input" accept="image/png, image/jpeg, image/tiff" style="display:none;" />
+          <div class="dropzone-icon">
+            <i class="fa-solid fa-cloud-arrow-up"></i>
+          </div>
+          <div class="dropzone-text">
+            <strong>Click to browse</strong> or drag & drop drone image file here
+          </div>
+          <div class="dropzone-sub">
+            Supports RGB Orthomosaics, UAV photogrammetry exports, and aerial captures
+          </div>
+          <div class="dropzone-file-selected" id="dropzone-file-name" style="display:none;">
+            <i class="fa-solid fa-file-image text-accent"></i> <span></span>
+          </div>
+        </div>
+
+        <!-- Quick Sample Presets -->
+        <div class="sample-presets-box mt-3">
+          <div class="sample-presets-label">
+            <i class="fa-solid fa-bolt text-warning"></i> Or test immediately with pre-packaged drone missions:
+          </div>
+          <div class="sample-buttons-grid mt-2">
+            <button type="button" class="btn-sample" data-sample="sample_drone_sector02.jpg">
+              <i class="fa-solid fa-city"></i>
+              <div class="sample-info">
+                <strong>Urban Sector 02 Mission</strong>
+                <small>Residential blocks, tree canopies, 10cm GSD</small>
+              </div>
+            </button>
+            <button type="button" class="btn-sample" data-sample="sample_drone_commercial.jpg">
+              <i class="fa-solid fa-warehouse"></i>
+              <div class="sample-info">
+                <strong>Commercial & Logistics Park</strong>
+                <small>Warehouses, dual carriageway, 10cm GSD</small>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Georeferencing Settings (Collapsible) -->
+        <details class="georef-details mt-3" open>
+          <summary class="georef-summary">
+            <i class="fa-solid fa-sliders"></i> Georeferencing & Flight Parameters
+          </summary>
+          <div class="georef-inputs mt-2">
+            <div class="input-row">
+              <div class="input-col">
+                <label>Center Latitude (°N):</label>
+                <input type="number" step="0.0001" id="drone-input-lat" class="form-control" value="17.3850" />
+              </div>
+              <div class="input-col">
+                <label>Center Longitude (°E):</label>
+                <input type="number" step="0.0001" id="drone-input-lon" class="form-control" value="78.4867" />
+              </div>
+              <div class="input-col">
+                <label>Ground Sampling Distance (GSD):</label>
+                <input type="number" step="0.01" id="drone-input-gsd" class="form-control" value="0.10" />
+              </div>
+            </div>
+            <small class="text-muted mt-1" style="display:block;">
+              <i class="fa-solid fa-circle-info"></i> If your drone photo contains EXIF GPS tags (DJI/Autel), coordinates are auto-detected.
+            </small>
+          </div>
+        </details>
+
+        <!-- Progress / Spinner inside modal -->
+        <div class="modal-spinner-box" id="drone-upload-spinner" style="display:none;">
+          <div class="spinner-ring"></div>
+          <div class="spinner-text">
+            <strong>Analyzing Drone Imagery...</strong>
+            <span>Computing spectral indices, detecting building footprints, and delineating parcels...</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" id="btn-cancel-drone-modal">Cancel</button>
+        <button class="btn btn-primary" id="btn-submit-drone-upload">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Analyze & Map Area
         </button>
       </div>
     </div>
