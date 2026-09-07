@@ -182,5 +182,40 @@ class TestCadastralPipeline(unittest.TestCase):
         self.assertEqual(res.status_code, 200)
         self.assertEqual(res.mimetype, "application/pdf")
 
+    def test_08_aoi_analysis_and_custom_parcel(self):
+        """Test Area of Interest (AOI) selection analysis and custom parcel registration."""
+        sample_aoi = {
+            "type": "Polygon",
+            "coordinates": [[
+                [78.4864, 17.3848],
+                [78.4868, 17.3848],
+                [78.4868, 17.3852],
+                [78.4864, 17.3852],
+                [78.4864, 17.3848]
+            ]]
+        }
+
+        # Analyze AOI
+        res = self.client.post("/api/aoi/analyze", json={"geometry": sample_aoi})
+        self.assertEqual(res.status_code, 200)
+        data = res.get_json()
+        self.assertTrue(data["success"])
+        self.assertGreater(data["metrics"]["area_sqm"], 0)
+        self.assertGreater(data["metrics"]["area_acres"], 0)
+        self.assertIn("counts", data)
+        self.assertIn("mean_elevation_m", data["metrics"])
+
+        # Create new custom parcel from AOI
+        res2 = self.client.post("/api/aoi/create-parcel", json={
+            "geometry": sample_aoi,
+            "land_use": "Commercial",
+            "parcel_id": "PARCEL-TEST-CUSTOM-01"
+        })
+        self.assertEqual(res2.status_code, 200)
+        data2 = res2.get_json()
+        self.assertTrue(data2["success"])
+        self.assertEqual(data2["parcel"]["properties"]["parcel_id"], "PARCEL-TEST-CUSTOM-01")
+        self.assertTrue(data2["parcel"]["properties"]["ulpin"].startswith("IND"))
+
 if __name__ == "__main__":
     unittest.main()

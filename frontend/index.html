@@ -96,6 +96,9 @@
         <button class="panel-tab active" data-tab="layers-tab">
           <i class="fa-solid fa-layer-group"></i> Layers
         </button>
+        <button class="panel-tab" data-tab="aoi-tab" id="tab-btn-aoi">
+          <i class="fa-solid fa-crop-simple"></i> Select Area
+        </button>
         <button class="panel-tab" data-tab="editing-tab">
           <i class="fa-solid fa-pen-ruler"></i> Vector Tools
         </button>
@@ -197,6 +200,104 @@
             <span class="layer-name">Boundary Conflicts & Encroachments</span>
             <span class="badge-alert" id="count-errors">1</span>
           </label>
+        </div>
+      </div>
+
+      <!-- Tab: Select Area (AOI) -->
+      <div class="tab-content" id="aoi-tab">
+        <div class="section-title">
+          <span>SELECT ANY PART OF THE MAP</span>
+          <span class="info-tag">AOI Tools</span>
+        </div>
+        <p class="panel-desc">
+          Select any custom section of the drone imagery or urban sector to inspect enclosed parcels, buildings, road corridors, and compute exact spatial metrics.
+        </p>
+
+        <div class="tool-btn-grid">
+          <button id="btn-aoi-box" class="tool-btn">
+            <i class="fa-regular fa-square"></i>
+            <span>Box Select</span>
+          </button>
+          <button id="btn-aoi-poly" class="tool-btn">
+            <i class="fa-solid fa-draw-polygon"></i>
+            <span>Polygon Select</span>
+          </button>
+          <button id="btn-aoi-point" class="tool-btn">
+            <i class="fa-solid fa-crosshairs"></i>
+            <span>Point Inspect</span>
+          </button>
+          <button id="btn-aoi-clear" class="tool-btn" style="color:var(--danger);">
+            <i class="fa-solid fa-xmark"></i>
+            <span>Clear Select</span>
+          </button>
+        </div>
+
+        <div class="edit-instructions mt-3">
+          <div class="instruction-header">
+            <i class="fa-solid fa-hand-pointer"></i> Selection Mode:
+          </div>
+          <div class="instruction-text" id="aoi-instruction-text">
+            Choose Box Select to drag an area, Polygon to click custom corners, or Point to inspect any spot on the map.
+          </div>
+        </div>
+
+        <!-- Selected Area Analysis Card -->
+        <div class="gt-card mt-3" id="aoi-analysis-card" style="display:none;">
+          <div class="gt-header">
+            <span class="gt-title"><i class="fa-solid fa-vector-square text-accent"></i> Selected Map Region</span>
+            <span class="gt-status-badge" style="background:rgba(56,189,248,0.2); color:var(--accent);">ACTIVE AOI</span>
+          </div>
+          <div class="gt-data-rows">
+            <div class="gt-row">
+              <span class="lbl">Total Area (Metric):</span>
+              <span class="val highlight" id="aoi-area-sqm">0 m²</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Total Area (Imperial):</span>
+              <span class="val" id="aoi-area-imperial">0 sq.ft (0 acres)</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Perimeter Length:</span>
+              <span class="val" id="aoi-perimeter">0 m</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Parcels Enclosed / Touched:</span>
+              <span class="val text-accent" id="aoi-parcels-count">0</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Buildings / Structures Inside:</span>
+              <span class="val text-warning" id="aoi-buildings-count">0</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Built-up Footprint:</span>
+              <span class="val" id="aoi-bld-area">0 m² (0%)</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Road Corridors Traversed:</span>
+              <span class="val" id="aoi-roads-count">0</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Mean Terrain Elevation:</span>
+              <span class="val" id="aoi-elevation">501.2 m</span>
+            </div>
+            <div class="gt-row">
+              <span class="lbl">Max Structural Height:</span>
+              <span class="val" id="aoi-max-height">0.0 m</span>
+            </div>
+          </div>
+
+          <!-- AOI Action Buttons -->
+          <div class="action-buttons mt-3">
+            <button id="btn-aoi-create-parcel" class="btn btn-primary w-full">
+              <i class="fa-solid fa-plus"></i> Register Selection as New Parcel
+            </button>
+            <button id="btn-aoi-extract-features" class="btn btn-secondary w-full mt-2">
+              <i class="fa-solid fa-wand-magic-sparkles"></i> Extract Features in Selection
+            </button>
+            <button id="btn-aoi-export-geojson" class="btn btn-outline w-full mt-2">
+              <i class="fa-solid fa-file-code"></i> Export Selection GeoJSON
+            </button>
+          </div>
         </div>
       </div>
 
@@ -309,6 +410,22 @@
 
       <!-- Map Overlay Floating Controls -->
       <div class="map-floating-top">
+        <!-- Interactive Map Selection Toolbar -->
+        <div class="map-selection-pill">
+          <button id="float-select-box" class="pill-btn" title="Box Select: Click and drag across any area of the map">
+            <i class="fa-regular fa-square"></i> Box Select
+          </button>
+          <button id="float-select-poly" class="pill-btn" title="Polygon Select: Click points to define custom boundary">
+            <i class="fa-solid fa-draw-polygon"></i> Polygon Select
+          </button>
+          <button id="float-select-point" class="pill-btn" title="Point Inspect: Click anywhere on the map to inspect">
+            <i class="fa-solid fa-crosshairs"></i> Point Inspect
+          </button>
+          <button id="float-clear-selection" class="pill-btn alert" title="Clear active selection" style="display:none;">
+            <i class="fa-solid fa-xmark"></i> Clear
+          </button>
+        </div>
+
         <!-- Swipe / Split View Mode Toggle -->
         <div class="swipe-toggle-pill">
           <button id="btn-toggle-swipe" class="pill-btn">

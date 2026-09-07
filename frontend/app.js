@@ -28,7 +28,15 @@ const STATE = {
   swipeActive: false,
   charts: {},
   editMode: null,
-  selectedForMerge: []
+  selectedForMerge: [],
+  selectionMode: null, // 'box', 'poly', 'point', or null
+  activeAOILayer: null,
+  activeAOIGeometry: null,
+  activeAOIMetrics: null,
+  boxStartLatLng: null,
+  polyPoints: [],
+  polyMarkers: [],
+  tempDrawLayer: null
 };
 
 // Map bounds corresponding to the 1024x1024 10cm GSD synthetic dataset
@@ -88,12 +96,78 @@ function initMap() {
     const lon = e.latlng.lng.toFixed(6);
     document.getElementById('mouse-coords').innerText = 
       `Lat: ${lat}° N | Lon: ${lon}° E | GSD: 0.10m | RTK Fixed`;
+
+    // Dynamic Box drag preview
+    if (STATE.selectionMode === 'box' && STATE.boxStartLatLng && STATE.tempDrawLayer) {
+      STATE.tempDrawLayer.setBounds(L.latLngBounds(STATE.boxStartLatLng, e.latlng));
+    }
   });
 
-  // Ground Truthing click handler
+  // Map Mouse Events for Custom Region Selection (Box, Poly, Point)
+  STATE.map.on('mousedown', (e) => {
+    if (STATE.selectionMode === 'box') {
+      STATE.map.dragging.disable();
+      STATE.boxStartLatLng = e.latlng;
+      if (STATE.tempDrawLayer) {
+        STATE.map.removeLayer(STATE.tempDrawLayer);
+      }
+      STATE.tempDrawLayer = L.rectangle([e.latlng, e.latlng], {
+        className: 'aoi-selection-rect',
+        color: '#38bdf8',
+        weight: 2,
+        fillColor: '#38bdf8',
+        fillOpacity: 0.25
+      }).addTo(STATE.map);
+    }
+  });
+
+  STATE.map.on('mouseup', (e) => {
+    if (STATE.selectionMode === 'box' && STATE.boxStartLatLng) {
+      STATE.map.dragging.enable();
+      const bounds = L.latLngBounds(STATE.boxStartLatLng, e.latlng);
+      STATE.boxStartLatLng = null;
+
+      // Ensure user actually dragged a box (not a trivial click)
+      const sw = bounds.getSouthWest();
+      const ne = bounds.getNorthEast();
+      const latDiff = Math.abs(ne.lat - sw.lat);
+      const lngDiff = Math.abs(ne.lng - sw.lng);
+
+      if (latDiff > 0.00002 && lngDiff > 0.00002) {
+        const geoJsonPoly = {
+          type: 'Polygon',
+          coordinates: [[
+            [sw.lng, sw.lat],
+            [ne.lng, sw.lat],
+            [ne.lng, ne.lat],
+            [sw.lng, ne.lat],
+            [sw.lng, sw.lat]
+          ]]
+        };
+        finalizeAOISelection(geoJsonPoly, bounds);
+      } else if (STATE.tempDrawLayer) {
+        STATE.map.removeLayer(STATE.tempDrawLayer);
+        STATE.tempDrawLayer = null;
+      }
+    }
+  });
+
+  // General click handler
   STATE.map.on('click', (e) => {
-    if (STATE.gtModeActive) {
+    if (STATE.selectionMode === 'poly') {
+      handlePolySelectionClick(e.latlng);
+    } else if (STATE.selectionMode === 'point') {
+      handlePointSelectionClick(e.latlng);
+    } else if (STATE.gtModeActive) {
       inspectGroundTruthPoint(e.latlng.lng, e.latlng.lat);
+    }
+  });
+
+  // Double click to finish polygon if in poly mode
+  STATE.map.on('dblclick', (e) => {
+    if (STATE.selectionMode === 'poly' && STATE.polyPoints.length >= 3) {
+      L.DomEvent.stopPropagation(e);
+      closeAndFinalizePolygon();
     }
   });
 
@@ -788,6 +862,9 @@ function setupUIEventListeners() {
 
   // Vector Tools Setup
   setupVectorTools();
+
+  // Area of Interest (Map Selection) Setup
+  setupAOITools();
 }
 
 function getActiveFilterPill() {
@@ -881,7 +958,350 @@ function setupVectorTools() {
 }
 
 /* =========================================================================
-   10. TOAST NOTIFICATION HELPERS
+   10. AREA OF INTEREST (SELECT ANY PART OF THE MAP) ENGINE
+   ========================================================================= */
+function setupAOITools() {
+  // Mode selection buttons (both sidebar and floating map toolbar)
+  const boxBtns = ['btn-aoi-box', 'float-select-box'];
+  const polyBtns = ['btn-aoi-poly', 'float-select-poly'];
+  const pointBtns = ['btn-aoi-point', 'float-select-point'];
+  const clearBtns = ['btn-aoi-clear', 'float-clear-selection'];
+
+  boxBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', () => setSelectionMode('box'));
+  });
+
+  polyBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', () => setSelectionMode('poly'));
+  });
+
+  pointBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', () => setSelectionMode('point'));
+  });
+
+  clearBtns.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', () => clearAOISelection());
+  });
+
+  // Action: Register selection as new parcel
+  const createParcelBtn = document.getElementById('btn-aoi-create-parcel');
+  if (createParcelBtn) {
+    createParcelBtn.addEventListener('click', async () => {
+      if (!STATE.activeAOIGeometry) return;
+      showToast("Creating Parcel", "Registering selected region as a new legal cadastral parcel...", 60);
+      try {
+        const res = await fetch('/api/aoi/create-parcel', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            geometry: STATE.activeAOIGeometry,
+            land_use: 'Residential'
+          })
+        });
+        const data = await res.json();
+        if (data.success) {
+          showToast("Parcel Registered", data.message, 100);
+          await loadDataset();
+          if (data.parcel) {
+            selectParcelById(data.parcel.properties.parcel_id);
+          }
+          setTimeout(hideToast, 2200);
+        } else {
+          showToast("Error", data.error || "Could not register parcel.", 100);
+          setTimeout(hideToast, 2500);
+        }
+      } catch (err) {
+        showToast("Error", "Network error registering parcel.", 100);
+        setTimeout(hideToast, 2500);
+      }
+    });
+  }
+
+  // Action: Targeted AI extraction on selection
+  const extractAOIBtn = document.getElementById('btn-aoi-extract-features');
+  if (extractAOIBtn) {
+    extractAOIBtn.addEventListener('click', async () => {
+      showToast("Targeted AI Extraction", "Extracting cadastral features in selected region...", 50);
+      await triggerAIExtraction();
+      if (STATE.activeAOILayer) {
+        STATE.map.fitBounds(STATE.activeAOILayer.getBounds(), { maxZoom: 21, padding: [40, 40] });
+      }
+    });
+  }
+
+  // Action: Export selection as GeoJSON
+  const exportAOIBtn = document.getElementById('btn-aoi-export-geojson');
+  if (exportAOIBtn) {
+    exportAOIBtn.addEventListener('click', () => {
+      if (!STATE.activeAOIGeometry) return;
+      const exportFC = {
+        type: "FeatureCollection",
+        features: [{
+          type: "Feature",
+          properties: {
+            aoi_name: "Selected_Cadastral_Region",
+            area_sqm: STATE.activeAOIMetrics ? STATE.activeAOIMetrics.metrics.area_sqm : 0,
+            area_acres: STATE.activeAOIMetrics ? STATE.activeAOIMetrics.metrics.area_acres : 0,
+            enclosed_parcels: STATE.activeAOIMetrics ? STATE.activeAOIMetrics.counts.parcels : 0,
+            enclosed_buildings: STATE.activeAOIMetrics ? STATE.activeAOIMetrics.counts.buildings : 0,
+            export_timestamp: new Date().toISOString()
+          },
+          geometry: STATE.activeAOIGeometry
+        }]
+      };
+      const blob = new Blob([JSON.stringify(exportFC, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'selected_cadastral_area.geojson';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  }
+}
+
+function setSelectionMode(mode) {
+  // Toggle off if clicked again
+  if (STATE.selectionMode === mode) {
+    clearAOISelection();
+    return;
+  }
+
+  STATE.selectionMode = mode;
+
+  // Sync button active classes
+  const btns = [
+    { id: 'btn-aoi-box', mode: 'box' },
+    { id: 'float-select-box', mode: 'box' },
+    { id: 'btn-aoi-poly', mode: 'poly' },
+    { id: 'float-select-poly', mode: 'poly' },
+    { id: 'btn-aoi-point', mode: 'point' },
+    { id: 'float-select-point', mode: 'point' }
+  ];
+
+  btns.forEach(b => {
+    const el = document.getElementById(b.id);
+    if (el) el.classList.toggle('active', b.mode === mode);
+  });
+
+  // Map cursor styling
+  const mapEl = document.getElementById('map');
+  mapEl.classList.remove('selecting-box', 'selecting-poly');
+  if (mode === 'box') mapEl.classList.add('selecting-box');
+  if (mode === 'poly') mapEl.classList.add('selecting-poly');
+
+  // Update instruction text
+  const instr = document.getElementById('aoi-instruction-text');
+  if (mode === 'box') {
+    instr.innerHTML = '<span class="text-accent"><b>Box Select Active:</b> Click and drag across any area of the drone map to outline a rectangular region.</span>';
+  } else if (mode === 'poly') {
+    STATE.polyPoints = [];
+    clearPolyTempMarkers();
+    instr.innerHTML = '<span class="text-accent"><b>Polygon Select Active:</b> Click multiple points on the map to define custom boundaries. Double-click or click the first point to close.</span>';
+  } else if (mode === 'point') {
+    instr.innerHTML = '<span class="text-accent"><b>Point Inspect Active:</b> Click any spot on the map to inspect terrain elevation, coordinates, and cadastral ownership.</span>';
+  } else {
+    instr.innerText = 'Choose Box Select to drag an area, Polygon to click custom corners, or Point to inspect any spot on the map.';
+  }
+
+  // Switch to AOI tab in sidebar
+  const aoiTabBtn = document.getElementById('tab-btn-aoi');
+  if (aoiTabBtn) aoiTabBtn.click();
+}
+
+function handlePolySelectionClick(latlng) {
+  STATE.polyPoints.push(latlng);
+
+  // Add vertex marker
+  const marker = L.circleMarker(latlng, {
+    radius: 5,
+    color: '#38bdf8',
+    fillColor: '#ffffff',
+    fillOpacity: 1,
+    weight: 2
+  }).addTo(STATE.map);
+  STATE.polyMarkers.push(marker);
+
+  // Draw or update dynamic polygon preview
+  if (STATE.tempDrawLayer) {
+    STATE.map.removeLayer(STATE.tempDrawLayer);
+  }
+
+  if (STATE.polyPoints.length >= 2) {
+    STATE.tempDrawLayer = L.polyline(STATE.polyPoints, {
+      color: '#38bdf8',
+      weight: 2.5,
+      dashArray: '5, 5'
+    }).addTo(STATE.map);
+  }
+
+  // If >= 3 points, clicking on the first marker closes and finalizes the polygon
+  if (STATE.polyPoints.length >= 3) {
+    STATE.polyMarkers[0].on('click', () => {
+      closeAndFinalizePolygon();
+    });
+  }
+}
+
+function closeAndFinalizePolygon() {
+  if (STATE.polyPoints.length < 3) return;
+  const coords = STATE.polyPoints.map(p => [p.lng, p.lat]);
+  // Close ring
+  coords.push([STATE.polyPoints[0].lng, STATE.polyPoints[0].lat]);
+
+  const geoJsonPoly = {
+    type: 'Polygon',
+    coordinates: [coords]
+  };
+
+  const polyLayer = L.polygon(STATE.polyPoints);
+  clearPolyTempMarkers();
+  finalizeAOISelection(geoJsonPoly, polyLayer.getBounds());
+}
+
+function handlePointSelectionClick(latlng) {
+  inspectGroundTruthPoint(latlng.lng, latlng.lat);
+
+  // Create a 20m square around point
+  const offset = 0.00010;
+  const sw = [latlng.lng - offset, latlng.lat - offset];
+  const ne = [latlng.lng + offset, latlng.lat + offset];
+  const geoJsonPoly = {
+    type: 'Polygon',
+    coordinates: [[
+      [sw[0], sw[1]],
+      [ne[0], sw[1]],
+      [ne[0], ne[1]],
+      [sw[0], ne[1]],
+      [sw[0], sw[1]]
+    ]]
+  };
+  const bounds = L.latLngBounds([sw[1], sw[0]], [ne[1], ne[0]]);
+  finalizeAOISelection(geoJsonPoly, bounds);
+}
+
+function clearPolyTempMarkers() {
+  STATE.polyMarkers.forEach(m => STATE.map.removeLayer(m));
+  STATE.polyMarkers = [];
+  if (STATE.tempDrawLayer) {
+    STATE.map.removeLayer(STATE.tempDrawLayer);
+    STATE.tempDrawLayer = null;
+  }
+}
+
+async function finalizeAOISelection(geoJsonPoly, bounds) {
+  // Remove prior selection layer
+  if (STATE.activeAOILayer) {
+    STATE.map.removeLayer(STATE.activeAOILayer);
+  }
+  if (STATE.tempDrawLayer) {
+    STATE.map.removeLayer(STATE.tempDrawLayer);
+    STATE.tempDrawLayer = null;
+  }
+
+  STATE.activeAOIGeometry = geoJsonPoly;
+
+  // Render highlighted AOI layer on the map with glowing style
+  STATE.activeAOILayer = L.geoJSON(geoJsonPoly, {
+    style: {
+      color: '#38bdf8',
+      weight: 3,
+      dashArray: '6, 6',
+      fillColor: '#0284c7',
+      fillOpacity: 0.28
+    }
+  }).addTo(STATE.map);
+
+  // Show clear buttons and card
+  document.getElementById('float-clear-selection').style.display = 'flex';
+  document.getElementById('aoi-analysis-card').style.display = 'block';
+  const aoiTabBtn = document.getElementById('tab-btn-aoi');
+  if (aoiTabBtn) aoiTabBtn.click();
+
+  // Reset drawing mode back to neutral
+  STATE.selectionMode = null;
+  const mapEl = document.getElementById('map');
+  mapEl.classList.remove('selecting-box', 'selecting-poly');
+  document.querySelectorAll('.map-selection-pill .pill-btn, .tool-btn-grid .tool-btn').forEach(b => b.classList.remove('active'));
+
+  showToast("Analyzing Selected Area", "Computing spatial metrics, parcel coverage, and building footprints in selection...", 40);
+
+  try {
+    const res = await fetch('/api/aoi/analyze', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ geometry: geoJsonPoly })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      STATE.activeAOIMetrics = data;
+      const m = data.metrics;
+      const c = data.counts;
+
+      document.getElementById('aoi-area-sqm').innerText = `${m.area_sqm.toLocaleString()} m²`;
+      document.getElementById('aoi-area-imperial').innerText = `${m.area_sqft.toLocaleString()} sq.ft (${m.area_acres} acres)`;
+      document.getElementById('aoi-perimeter').innerText = `${m.perimeter_m.toLocaleString()} m`;
+      document.getElementById('aoi-parcels-count').innerText = `${c.parcels} parcel(s)`;
+      document.getElementById('aoi-buildings-count').innerText = `${c.buildings} structure(s)`;
+      document.getElementById('aoi-bld-area').innerText = `${c.built_up_area_sqm} m² (${c.ground_coverage_ratio}% ground coverage)`;
+      document.getElementById('aoi-roads-count').innerText = c.roads > 0 ? `${c.roads} road corridor(s)` : 'None';
+      document.getElementById('aoi-elevation').innerText = `${m.mean_elevation_m} m`;
+      document.getElementById('aoi-max-height').innerText = `${m.max_structural_height_m} m (nDSM)`;
+
+      // Bind popup to selection
+      STATE.activeAOILayer.bindPopup(`
+        <div class="cadastre-popup">
+          <h4 style="color:#38bdf8;"><i class="fa-solid fa-vector-square"></i> Selected Map Region (AOI)</h4>
+          <table>
+            <tr><td class="k">Area:</td><td><b>${m.area_sqm} m² (${m.area_acres} ac)</b></td></tr>
+            <tr><td class="k">Parcels Inside:</td><td>${c.parcels}</td></tr>
+            <tr><td class="k">Buildings:</td><td>${c.buildings} (${c.ground_coverage_ratio}% Built-up)</td></tr>
+            <tr><td class="k">Elevation:</td><td>${m.mean_elevation_m} m</td></tr>
+          </table>
+        </div>
+      `).openPopup();
+
+      hideToast();
+    }
+  } catch (err) {
+    console.error("AOI analysis error:", err);
+    hideToast();
+  }
+}
+
+function clearAOISelection() {
+  if (STATE.activeAOILayer) {
+    STATE.map.removeLayer(STATE.activeAOILayer);
+    STATE.activeAOILayer = null;
+  }
+  if (STATE.tempDrawLayer) {
+    STATE.map.removeLayer(STATE.tempDrawLayer);
+    STATE.tempDrawLayer = null;
+  }
+  clearPolyTempMarkers();
+  STATE.selectionMode = null;
+  STATE.activeAOIGeometry = null;
+  STATE.activeAOIMetrics = null;
+  STATE.polyPoints = [];
+
+  document.getElementById('float-clear-selection').style.display = 'none';
+  document.getElementById('aoi-analysis-card').style.display = 'none';
+
+  const mapEl = document.getElementById('map');
+  mapEl.classList.remove('selecting-box', 'selecting-poly');
+  document.querySelectorAll('.map-selection-pill .pill-btn, .tool-btn-grid .tool-btn').forEach(b => b.classList.remove('active'));
+
+  document.getElementById('aoi-instruction-text').innerText =
+    'Choose Box Select to drag an area, Polygon to click custom corners, or Point to inspect any spot on the map.';
+}
+
+/* =========================================================================
+   11. TOAST NOTIFICATION HELPERS
    ========================================================================= */
 function showToast(title, msg, progressPct = 50) {
   const toast = document.getElementById('progress-toast');

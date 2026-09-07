@@ -637,6 +637,51 @@ body {
   font-weight: 600;
 }
 
+.map-selection-pill {
+  display: flex;
+  gap: 0.35rem;
+  background-color: rgba(11, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.25rem;
+  border-radius: 24px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.pill-btn.alert {
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.pill-btn.alert:hover {
+  background-color: var(--danger);
+  color: white;
+  border-color: var(--danger);
+}
+
+.map-canvas.selecting-box {
+  cursor: crosshair !important;
+}
+
+.map-canvas.selecting-poly {
+  cursor: cell !important;
+}
+
+.aoi-selection-rect {
+  stroke: #38bdf8 !important;
+  stroke-width: 2.5 !important;
+  stroke-dasharray: 6, 6 !important;
+  fill: #38bdf8 !important;
+  fill-opacity: 0.25 !important;
+  animation: dash 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
 .zoom-presets {
   display: flex;
   gap: 0.35rem;
