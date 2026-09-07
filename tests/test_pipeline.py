@@ -28,6 +28,18 @@ class TestCadastralPipeline(unittest.TestCase):
     def setUpClass(cls):
         cls.data_dir = "data"
         cls.client = app.test_client()
+        cls.gt_parcels_path = os.path.join(cls.data_dir, "ground_truth_parcels.geojson")
+        with open(cls.gt_parcels_path, "r", encoding="utf-8") as f:
+            cls.initial_gt_parcels = f.read()
+
+    @classmethod
+    def tearDownClass(cls):
+        # Restore ground truth parcels to initial state
+        with open(cls.gt_parcels_path, "w", encoding="utf-8") as f:
+            f.write(cls.initial_gt_parcels)
+        from backend.app import parcel_manager
+        parcel_manager.load_data()
+        cls.client.post("/api/topology/validate")
 
     def test_01_coordinate_transforms(self):
         """Test pixel to geographic coordinate conversion round-trip."""
@@ -216,6 +228,15 @@ class TestCadastralPipeline(unittest.TestCase):
         self.assertTrue(data2["success"])
         self.assertEqual(data2["parcel"]["properties"]["parcel_id"], "PARCEL-TEST-CUSTOM-01")
         self.assertTrue(data2["parcel"]["properties"]["ulpin"].startswith("IND"))
+
+        # Clean up test parcel so subsequent tests remain pristine
+        from backend.app import parcel_manager
+        parcel_manager.parcels_fc["features"] = [
+            f for f in parcel_manager.parcels_fc["features"]
+            if f["properties"].get("parcel_id") != "PARCEL-TEST-CUSTOM-01"
+        ]
+        parcel_manager.save_data()
+        self.client.post("/api/topology/validate")
 
 if __name__ == "__main__":
     unittest.main()
